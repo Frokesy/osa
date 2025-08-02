@@ -2,7 +2,7 @@ import TopNav from "../../components/defaults/TopNav"
 
 const Home = () => {
   return (
-    <div>
+    <div className="pt-10">
         <TopNav />
     </div>
   )
