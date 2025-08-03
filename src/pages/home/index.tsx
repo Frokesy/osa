@@ -1,9 +1,9 @@
-import TopNav from "../../components/defaults/TopNav"
+import Hero from "../../components/sections/home/Hero"
 
 const Home = () => {
   return (
-    <div className="pt-10">
-        <TopNav />
+    <div className="">
+        <Hero />
     </div>
   )
 }
