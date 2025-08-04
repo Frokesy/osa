@@ -124,3 +124,67 @@ export const WhiteTick = () => (
     />
   </svg>
 );
+
+export const DiagArrow = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.83333 14.1673L14.1667 5.83398M14.1667 5.83398H5.83333M14.1667 5.83398V14.1673"
+      stroke="#182B69"
+      strokeWidth="1.67"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const NewsIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15 12.5V7.5C15 5.14298 15 3.96447 14.2677 3.23223C13.5355 2.5 12.357 2.5 9.99996 2.5H6.66663C4.3096 2.5 3.13109 2.5 2.39886 3.23223C1.66663 3.96447 1.66663 5.14298 1.66663 7.5V12.5C1.66663 14.857 1.66663 16.0355 2.39886 16.7678C3.13109 17.5 4.3096 17.5 6.66663 17.5H16.6666"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4.99996 6.66602L11.6666 6.66602"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4.99996 10L11.6666 10"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M5.00004 13.334L8.33337 13.334"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M15 6.66602H15.8333C17.0118 6.66602 17.6011 6.66602 17.9672 7.03213C18.3333 7.39825 18.3333 7.9875 18.3333 9.16602V15.8327C18.3333 16.7532 17.5871 17.4993 16.6667 17.4993C15.7462 17.4993 15 16.7532 15 15.8327V6.66602Z"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
