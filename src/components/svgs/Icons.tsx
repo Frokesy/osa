@@ -105,3 +105,22 @@ export const PeopleIcon = () => (
     />
   </svg>
 );
+
+export const WhiteTick = () => (
+  <svg
+    width="36"
+    height="24"
+    viewBox="0 0 36 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 7L9.01 16L5 12.365"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeMiterlimit="10"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
