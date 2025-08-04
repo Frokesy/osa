@@ -35,7 +35,7 @@ const About = () => {
             </div>
 
             <div className="flex justify-between gap-6 flex-col lg:flex-row-reverse">
-              <div className="lg;w-1/2 lg:h-[493px] h-[272px] bg-[#808080]/30 backdrop-blur-sm border border-[#808080] lg:px-10 px-6 rounded-3xl flex items-center justify-center lg:text-[36px] text-[20px] font-bold">
+              <div className="lg:w-1/2 lg:h-[493px] h-[272px] bg-[#808080]/30 backdrop-blur-sm border border-[#808080] lg:px-10 px-6 rounded-3xl flex items-center justify-center lg:text-[36px] text-[20px] font-bold">
                 <h2>
                   We help ensure compliance with legal and regulatory
                   requirements.
