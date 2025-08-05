@@ -10,7 +10,7 @@ const TopNav = () => {
     { name: "Career", path: "/career" },
   ];
   return (
-      <div className="lg:w-[95vw] z-50 bg-[#808080]/40 backdrop-blur-xs flex justify-between items-center text-[#fff] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
+      <div className="lg:w-[95vw] z-20 bg-[#808080]/40 backdrop-blur-xs flex justify-between items-center text-[#fff] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
         <div className="flex items-center space-x-20">
           <img src="/assets/logo.svg" alt="logo" />
           <div className="lg:flex hidden items-center space-x-10">
