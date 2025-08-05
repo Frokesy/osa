@@ -8,6 +8,7 @@ import RecruitmentServices from "./pages/services/rss";
 import PayrollCompensationDevelopment from "./pages/services/pcd";
 import PerformanceManagementSystem from "./pages/services/pms";
 import BusinessProcessManual from "./pages/services/bppm";
+import OrganizationDevelopment from "./pages/services/odc";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const App = () => {
     { path: "/services/pcd", element: <PayrollCompensationDevelopment /> },
     { path: "/services/pms", element: <PerformanceManagementSystem /> },
     { path: "/services/bppm", element: <BusinessProcessManual /> },
+    { path: "/services/odc", element: <OrganizationDevelopment /> },
   ]);
 
   return (
