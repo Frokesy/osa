@@ -6,6 +6,7 @@ import VocationalSkillsDevelopment from "./pages/services/vsd";
 import TalentManagement from "./pages/services/tmo";
 import RecruitmentServices from "./pages/services/rss";
 import PayrollCompensationDevelopment from "./pages/services/pcd";
+import PerformanceManagementSystem from "./pages/services/pms";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -15,6 +16,7 @@ const App = () => {
     { path: "/services/tmo", element: <TalentManagement /> },
     { path: "/services/rss", element: <RecruitmentServices /> },
     { path: "/services/pcd", element: <PayrollCompensationDevelopment /> },
+    { path: "/services/pms", element: <PerformanceManagementSystem /> }
   ]);
 
   return (
