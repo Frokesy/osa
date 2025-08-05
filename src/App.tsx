@@ -5,6 +5,7 @@ import Contact from "./pages/contact";
 import VocationalSkillsDevelopment from "./pages/services/vsd";
 import TalentManagement from "./pages/services/tmo";
 import RecruitmentServices from "./pages/services/rss";
+import PayrollCompensationDevelopment from "./pages/services/pcd";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const App = () => {
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
     { path: "/services/tmo", element: <TalentManagement /> },
     { path: "/services/rss", element: <RecruitmentServices /> },
+    { path: "/services/pcd", element: <PayrollCompensationDevelopment /> },
   ]);
 
   return (
