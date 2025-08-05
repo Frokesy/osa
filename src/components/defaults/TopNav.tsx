@@ -26,10 +26,10 @@ const TopNav = () => {
             ))}
           </div>
         </div>
-        <button className="lg:flex hidden items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors">
+        <NavLink to="/contact" className="lg:flex hidden items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors">
           <span>Contact us</span>
           <TelIcon />
-        </button>
+        </NavLink>
         <div className="lg:hidden">
           <Hamburger />
         </div>
