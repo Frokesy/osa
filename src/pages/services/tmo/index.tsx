@@ -60,7 +60,7 @@ const TalentManagement = () => {
 
             <div className="flex items-center justify-between">
               <div className="">
-                <h2 className="mt-6 lg:text-[48px] text-[20px] font-semibold uppercase">
+                <h2 className="lg:text-[48px] text-[20px] font-semibold uppercase">
                   Talent management & outsourcing
                 </h2>
                 <p className="text-[14px] pt-2">

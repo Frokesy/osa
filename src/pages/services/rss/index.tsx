@@ -1,77 +1,50 @@
+import { SettingsIcon } from "lucide-react";
 import TopNav from "../../../components/defaults/TopNav";
 import {
   ServiceIcon,
-  SettingsIcon,
-  VSDIcon,
+  TMOIcon,
   WhiteTick,
 } from "../../../components/svgs/Icons";
 
-const VocationalSkillsDevelopment = () => {
+const RecruitmentServices = () => {
   const skillItems = [
     {
       id: 1,
-      title: "Electrical and electronics repair",
+      title: "Application Database",
       description:
         "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
+      features: ["Employee Services", "Compensation, Medicals", "Tax", "Other benefits"],
       image: "/assets/services-two.png",
       bg: "#0E1A3E",
     },
     {
       id: 2,
-      title: "Painting and Tilling",
+      title: "Résumés Shortlists",
       description:
         "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
       features: [
         "Professional tutors to attend to your needs",
         "Flexible billing and workflows",
       ],
-      image: "/assets/services-three.png",
+      image: "/assets/about-img-five.png",
       bg: "#ffffff",
     },
     {
       id: 3,
-      title: "Auto-mechanics",
+      title: "Interview Reports",
       description:
         "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
       features: [
         "Professional tutors to attend to your needs",
         "Flexible billing and workflows",
       ],
-      image: "/assets/services-four.png",
-      bg: "#0E1A3E",
-    },
-    {
-      id: 4,
-      title: "Carpentry",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/services-five.png",
-      bg: "#ffffff",
-    },
-    {
-      id: 5,
-      title: "Plumbing",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/services-six.png",
+      image: "/assets/about-img-five.png",
       bg: "#0E1A3E",
     },
   ];
   return (
     <div className="">
-      <div className="bg-[url('/assets/services-one.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
+      <div className="bg-[url('/assets/services-eight.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
 
@@ -84,14 +57,13 @@ const VocationalSkillsDevelopment = () => {
             <div className="flex items-center justify-between">
               <div className="">
                 <h2 className="lg:text-[48px] text-[20px] font-semibold uppercase">
-                  VOCATIONAL SKILLS DEVELOPMENT
+                  Recruitment & selection services
                 </h2>
                 <p className="text-[14px] pt-2">
-                  Empowering individuals with practical, job-ready skills to
-                  enhance performance and drive career growth
+                  Identifying, attracting, and hiring the best-fit candidates.
                 </p>
               </div>
-              <VSDIcon />
+              <TMOIcon />
             </div>
           </div>
         </div>
@@ -99,39 +71,37 @@ const VocationalSkillsDevelopment = () => {
 
       <div className="bg-[#1F3887] w-[100%] mt-6 text-[#fff] py-14 flex flex-col items-center justify-center">
         <div className="flex items-center space-x-2">
-          <div className="lg:block hidden"><ServiceIcon /></div>
+          <div className="lg:block hidden">
+            <ServiceIcon />
+          </div>
           <h2 className="lg:text-[36px] uppercase font-semibold">
             Onestep<span className="text-[#ED1C24]">ahead</span>
           </h2>
         </div>
 
         <h2 className="pt-3 lg:text-[48px] text-[24px] lg:w-[60%] text-center font-semibold">
-          "Training individuals for specific job-related competencies."
+          "Finding and placing the right talent to fit your business needs."
         </h2>
       </div>
 
       <div className="lg:mt-20 mt-10 w-[95vw] mx-auto">
         <SettingsIcon />
         <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
-          Vocational Skills Development
+          Recruitment & selection services
         </h2>
         <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
-          The world of business is done a great disfavor. It is at a loss of
-          great talents and ingenuity that can birth disruptive innovations when
-          vocational skills development is given much-deserved attention.{" "}
+          Recruiting the right candidates, for the right job at the right time
+          also involves using the right tools. Our recruitment services ensure
+          that the organization adopts best practice assessment tools and
+          interview techniques that address the business needs and obtains
+          value.
         </p>
         <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
-          We are passionate about changing the prevalent narrative that
-          vocational skills training is only for individuals who are not
-          academically gifted but rather for anyone who may not be opportune to
-          be formally educated. Science has proven that academic intelligence
-          only accounts for one out of the various forms of intelligence.
-        </p>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
-          Our courses are designed to meet global benchmarks and skilled
-          manpower needs. Our faculties are dedicated to equipping young and
-          vibrant youths with the much-needed vocational skills to thrive in
-          developed and developing economies such as ours.
+          Recruiting the right candidates, for the right job at the right time
+          also involves using the right tools. Our recruitment services ensure
+          that the organization adopts best practice assessment tools and
+          interviews techniques that address the business needs and obtains
+          value.
         </p>
       </div>
 
@@ -141,20 +111,31 @@ const VocationalSkillsDevelopment = () => {
             key={item.id}
             style={{ backgroundColor: item.bg }}
             className={`${
-              item.id%2 === 0 ? "lg:flex-row-reverse flex-col text-[#000]" : "lg:flex-row flex-col"
+              item.id % 2 === 0
+                ? "lg:flex-row-reverse flex-col text-[#000]"
+                : "lg:flex-row flex-col"
             } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
           >
             <div className="lg:w-[55%]">
               <img
                 src={item.image}
                 alt={item.title}
-                className={`${item.id%2 === 0 ? 'lg:rounded-l-full lg:rounded-bl-full lg:rounded-b-none rounded-b-full' : 'lg:rounded-r-full lg:rounded-br-full lg:rounded-b-none rounded-b-full'} lg:h-[414px] h-[241px] w-[100%]`}
+                className={`${
+                  item.id % 2 === 0
+                    ? "lg:rounded-l-full lg:rounded-bl-full lg:rounded-b-none rounded-b-full"
+                    : "lg:rounded-r-full lg:rounded-br-full lg:rounded-b-none rounded-b-full"
+                } lg:h-[414px] h-[241px] w-[100%]`}
               />
             </div>
 
-            <div className={`${
-              item.id%2 === 0 ? 'px-3' : 'px-6 lg:px-0' } lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}>
-              <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">{item.title}</h2>
+            <div
+              className={`${
+                item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
+              } lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
+            >
+              <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
+                {item.title}
+              </h2>
               <p className="lg:text-[16px] text-[14px]">{item.description}</p>
 
               <div className="space-y-2">
@@ -175,4 +156,4 @@ const VocationalSkillsDevelopment = () => {
   );
 };
 
-export default VocationalSkillsDevelopment;
+export default RecruitmentServices;
