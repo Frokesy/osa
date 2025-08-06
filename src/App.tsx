@@ -10,6 +10,7 @@ import PerformanceManagementSystem from "./pages/services/pms";
 import BusinessProcessManual from "./pages/services/bppm";
 import OrganizationDevelopment from "./pages/services/odc";
 import Team from "./pages/about/team";
+import CoreValues from "./pages/about/values";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -22,7 +23,8 @@ const App = () => {
     { path: "/services/pms", element: <PerformanceManagementSystem /> },
     { path: "/services/bppm", element: <BusinessProcessManual /> },
     { path: "/services/odc", element: <OrganizationDevelopment /> },
-    { path: "/team", element: <Team /> },
+    { path: "/about/team", element: <Team /> },
+    { path: "/about/core-values", element: <CoreValues /> },
   ]);
 
   return (
