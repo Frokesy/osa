@@ -1,6 +1,6 @@
-import TopNav from "../../components/defaults/TopNav";
-import { DiagArrow, TeamIcon } from "../../components/svgs/Icons";
-import { LinkedIn, Twitter, Website } from "../../components/svgs/Logos";
+import TopNav from "../../../components/defaults/TopNav";
+import { DiagArrow, TeamIcon } from "../../../components/svgs/Icons";
+import { LinkedIn, Twitter, Website } from "../../../components/svgs/Logos";
 
 const Team = () => {
   const teamMembers = [

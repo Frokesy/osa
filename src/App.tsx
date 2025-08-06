@@ -9,7 +9,7 @@ import PayrollCompensationDevelopment from "./pages/services/pcd";
 import PerformanceManagementSystem from "./pages/services/pms";
 import BusinessProcessManual from "./pages/services/bppm";
 import OrganizationDevelopment from "./pages/services/odc";
-import Team from "./pages/team";
+import Team from "./pages/about/team";
 
 const App = () => {
   const router = createBrowserRouter([
