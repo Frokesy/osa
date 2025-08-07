@@ -9,6 +9,7 @@ import {
   ServiceIcon,
 } from "../../components/svgs/Icons";
 import Footer from "../../components/defaults/Footer";
+import Container from "../../components/defaults/Container";
 
 const Careers = () => {
   const openRoles = [
@@ -95,7 +96,7 @@ const Careers = () => {
     },
   ];
   return (
-    <div>
+    <Container>
       <div className="bg-[url('/assets/career-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -266,7 +267,7 @@ const Careers = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

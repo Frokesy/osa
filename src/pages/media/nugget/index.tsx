@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import TopNav from "../../../components/defaults/TopNav";
 import { DiagArrow, ServiceIcon } from "../../../components/svgs/Icons";
 import Footer from "../../../components/defaults/Footer";
+import Container from "../../../components/defaults/Container";
 
 const HrNugget = () => {
   const newsItems = [
@@ -67,7 +68,7 @@ const HrNugget = () => {
     },
   ];
   return (
-    <div>
+    <Container>
       <div className="bg-[url('/assets/hr-nugget.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -189,7 +190,7 @@ const HrNugget = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

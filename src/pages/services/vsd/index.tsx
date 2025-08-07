@@ -1,3 +1,4 @@
+import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import {
@@ -71,7 +72,7 @@ const VocationalSkillsDevelopment = () => {
     },
   ];
   return (
-    <div className="">
+    <Container>
       <div className="bg-[url('/assets/services-one.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -174,7 +175,7 @@ const VocationalSkillsDevelopment = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

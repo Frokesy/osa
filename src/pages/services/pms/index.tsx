@@ -6,6 +6,7 @@ import {
   WhiteTick,
 } from "../../../components/svgs/Icons";
 import Footer from "../../../components/defaults/Footer";
+import Container from "../../../components/defaults/Container";
 
 const PerformanceManagementSystem = () => {
   const skillItems = [
@@ -85,7 +86,7 @@ const PerformanceManagementSystem = () => {
     },
   ];
   return (
-    <div className="">
+    <Container>
       <div className="bg-[url('/assets/services-ten.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -198,7 +199,7 @@ const PerformanceManagementSystem = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

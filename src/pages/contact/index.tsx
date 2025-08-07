@@ -1,9 +1,10 @@
+import Container from "../../components/defaults/Container";
 import Footer from "../../components/defaults/Footer";
 import TopNav from "../../components/defaults/TopNav";
 
 const Contact = () => {
   return (
-    <div className="">
+    <Container>
       <div className="py-6 bg-red-700">
         <TopNav />
       </div>
@@ -125,7 +126,7 @@ const Contact = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </Container>
   );
 };
 

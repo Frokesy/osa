@@ -6,6 +6,7 @@ import {
   WhiteTick,
 } from "../../../components/svgs/Icons";
 import Footer from "../../../components/defaults/Footer";
+import Container from "../../../components/defaults/Container";
 
 const BusinessProcessManual = () => {
   const skillItems = [
@@ -60,7 +61,7 @@ const BusinessProcessManual = () => {
     },
   ];
   return (
-    <div className="">
+    <Container>
       <div className="bg-[url('/assets/services-eleven.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -173,7 +174,7 @@ const BusinessProcessManual = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

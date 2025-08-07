@@ -1,3 +1,4 @@
+import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import {
@@ -40,7 +41,7 @@ const CoreValues = () => {
     },
   ];
   return (
-    <div>
+    <Container>
       <div className="bg-[url('/assets/about-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
@@ -107,7 +108,7 @@ const CoreValues = () => {
       </div>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 
