@@ -21,9 +21,11 @@ const TopNav = () => {
   };
 
   return (
-    <div className="lg:w-[95vw] z-20 bg-[#808080]/40 backdrop-blur-xs flex justify-between items-center text-[#fff] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
+    <div className="lg:w-[95vw] z-20 bg-[#808080]/40 backdrop-blur-xs relative flex justify-between items-center text-[#fff] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
       <div className="flex items-center space-x-20">
-        <img src="/assets/logo.svg" alt="logo" />
+        <NavLink to="/">
+          <img src="/assets/logo.svg" alt="logo" />
+        </NavLink>
         <div className="lg:flex hidden items-center space-x-10">
           {navItems.map((item, index) => (
             <div key={index} className="relative">
@@ -47,12 +49,10 @@ const TopNav = () => {
               {item.name === "About" && activeDropdown === "About" && (
                 <AboutDropdown />
               )}
-              {item.name === "Our services" && activeDropdown === "Our services" && (
-                <ServicesDropdown />
-              )}
-              {item.name === "Media room" && activeDropdown === "Media room" && (
-                <MediaDropdown />
-              )}
+              {item.name === "Our services" &&
+                activeDropdown === "Our services" && <ServicesDropdown />}
+              {item.name === "Media room" &&
+                activeDropdown === "Media room" && <MediaDropdown />}
             </div>
           ))}
         </div>

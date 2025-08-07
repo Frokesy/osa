@@ -20,7 +20,7 @@ const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
-    { path: "/careers", element: <Careers /> },
+    { path: "/career", element: <Careers /> },
     
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },

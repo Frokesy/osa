@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { InstagramIcon, PhoneIcon, SubmitIcon, UserIcon } from "../svgs/Icons";
 
 const Footer = () => {
@@ -81,28 +82,28 @@ const Footer = () => {
             <div className="lg:w-[50%] flex lg:flex-row flex-col space-y-10 lg:space-y-0 justify-between">
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">About</h2>
-                <span className="text-[14px]">Who we are</span>
-                <span className="text-[14px]">Core values</span>
-                <span className="text-[14px]">Our team</span>
+                <NavLink to="/about/history" className="text-[14px]">Who we are</NavLink>
+                <NavLink to="/about/core-values" className="text-[14px]">Core values</NavLink>
+                <NavLink to="/about/team" className="text-[14px]">Our team</NavLink>
               </div>
 
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">Resources</h2>
-                <span className="text-[14px]">
+                <NavLink to="/services/vsd" className="text-[14px]">
                   Vocational skills development
-                </span>
-                <span className="text-[14px]">Talent management</span>
-                <span className="text-[14px]">Recruitment services</span>
-                <span className="text-[14px]">Payroll compensation</span>
-                <span className="text-[14px]">
+                </NavLink>
+                <NavLink to="/services/tmo" className="text-[14px]">Talent management</NavLink>
+                <NavLink to="/services/rsss" className="text-[14px]">Recruitment services</NavLink>
+                <NavLink to="/services/pcd" className="text-[14px]">Payroll compensation</NavLink>
+                <NavLink to="/services/pms" className="text-[14px]">
                   Performance management system
-                </span>
-                <span className="text-[14px]">
-                  Business policy & policy manual
-                </span>
-                <span className="text-[14px]">
+                </NavLink>
+                <NavLink to="/services/bppm" className="text-[14px]">
+                  Business process & policy manual
+                </NavLink>
+                <NavLink to="/services/odc" className="text-[14px]">
                   Organisation development & change
-                </span>
+                </NavLink>
               </div>
 
               <div className="flex flex-col space-y-4">
