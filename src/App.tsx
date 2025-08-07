@@ -13,6 +13,7 @@ import Team from "./pages/about/team";
 import CoreValues from "./pages/about/values";
 import History from "./pages/about/history";
 import Careers from "./pages/careers";
+import NewsHighlights from "./pages/media/highlights";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -32,7 +33,10 @@ const App = () => {
     // about routes
     { path: "/about/team", element: <Team /> },
     { path: "/about/core-values", element: <CoreValues /> },
-    { path: "/about/history", element: <History /> }
+    { path: "/about/history", element: <History /> },
+
+    // media routes
+    { path: "/media/highlights", element: <NewsHighlights /> },
   ]);
 
   return (
