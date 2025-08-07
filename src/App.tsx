@@ -14,6 +14,7 @@ import CoreValues from "./pages/about/values";
 import History from "./pages/about/history";
 import Careers from "./pages/careers";
 import NewsHighlights from "./pages/media/highlights";
+import HrNugget from "./pages/media/nugget";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const App = () => {
 
     // media routes
     { path: "/media/highlights", element: <NewsHighlights /> },
+    { path: "/media/nugget", element: <HrNugget /> },
   ]);
 
   return (
