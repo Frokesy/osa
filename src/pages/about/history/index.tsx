@@ -1,3 +1,4 @@
+import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import {
   BgAttachmentOne,
@@ -148,6 +149,7 @@ const History = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

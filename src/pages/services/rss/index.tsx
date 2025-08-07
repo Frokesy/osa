@@ -5,6 +5,7 @@ import {
   TMOIcon,
   WhiteTick,
 } from "../../../components/svgs/Icons";
+import Footer from "../../../components/defaults/Footer";
 
 const RecruitmentServices = () => {
   const skillItems = [
@@ -48,7 +49,7 @@ const RecruitmentServices = () => {
         <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
           <TopNav />
 
-          <div className="bg-[#808080]/40 backdrop-blur-xs w-[95vw] lg:p-10 p-6 rounded-4xl mt-[20vh] lg:mt-[30vh] text-[#fff] mx-auto">
+          <div className="bg-[#808080]/40 backdrop-blur-xs w-[95vw] lg:p-10 p-6 rounded-4xl mt-[20vh] lg:mt-[25vh] text-[#fff] mx-auto">
             <div className="flex items-center space-x-3">
               <div className="h-0.5 rounded-full w-6 bg-[#ED1C24]"></div>
               <p className="text-[12px] uppercase">Services</p>
@@ -152,6 +153,8 @@ const RecruitmentServices = () => {
           </div>
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 };

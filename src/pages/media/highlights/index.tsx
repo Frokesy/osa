@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import TopNav from "../../../components/defaults/TopNav";
 import { DiagArrow, ServiceIcon } from "../../../components/svgs/Icons";
+import Footer from "../../../components/defaults/Footer";
 
 const NewsHighlights = () => {
   const newsItems = [
@@ -186,6 +187,8 @@ const NewsHighlights = () => {
           <ArrowRight size={18} />
         </button>
       </div>
+
+      <Footer />
     </div>
   );
 };

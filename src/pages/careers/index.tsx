@@ -8,6 +8,7 @@ import {
   MiniCalendarIcon,
   ServiceIcon,
 } from "../../components/svgs/Icons";
+import Footer from "../../components/defaults/Footer";
 
 const Careers = () => {
   const openRoles = [
@@ -263,6 +264,8 @@ const Careers = () => {
           className="w-[100%] lg:h-[400px] h-[200px]"
         />
       </div>
+
+      <Footer />
     </div>
   );
 };

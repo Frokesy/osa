@@ -1,3 +1,4 @@
+import Footer from "../../components/defaults/Footer";
 import TopNav from "../../components/defaults/TopNav";
 
 const Contact = () => {
@@ -123,6 +124,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
