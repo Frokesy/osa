@@ -12,11 +12,13 @@ import OrganizationDevelopment from "./pages/services/odc";
 import Team from "./pages/about/team";
 import CoreValues from "./pages/about/values";
 import History from "./pages/about/history";
+import Careers from "./pages/careers";
 
 const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
+    { path: "/careers", element: <Careers /> },
     
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
