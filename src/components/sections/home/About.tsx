@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
       <div className="bg-[#1F3887] mt-6">
-        <div className="relative lg:h-[55vh] h-[45vh] w-full">
+        {/* <div className="relative lg:h-[55vh] h-[45vh] w-full">
           <div className="absolute inset-0 bg-[#1F3887]/60 backdrop-blur-sm z-0"></div>
           <div className="relative z-10 flex flex-col justify-center items-center h-full space-y-6">
             <h2 className="lg:text-[48px] text-[20px] font-semibold text-[#fff]">About Us</h2>
@@ -14,7 +14,7 @@ const About = () => {
               comprehensive suite of strategic HR solutions.
             </p>
           </div>
-        </div>
+        </div> */}
 
         <div className="bg-[url('/assets/bg-gradient.png')] bg-cover bg-no-repeat py-20">
           <div className="w-[90vw] mx-auto space-y-6">

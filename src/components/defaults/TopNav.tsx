@@ -6,6 +6,7 @@ import ServicesDropdown from "../sections/dropdowns/ServicesDropdown";
 import MediaDropdown from "../sections/dropdowns/MediaDropdown";
 import Drawer from "./Drawer";
 import { AnimatePresence, motion } from "framer-motion";
+import { Instagram, Phone } from "lucide-react";
 
 const TopNav = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -24,8 +25,17 @@ const TopNav = () => {
   };
 
   return (
-    <>
-      <div className="lg:w-[95vw] z-50 bg-[#808080]/40 backdrop-blur-xs relative flex justify-between items-center text-white py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
+    <div className="bg-[#fff]">
+      <div className="bg-[#223D94] lg:flex hidden justify-between px-16 text-[#fff] items-center py-3">
+        <div className="flex items-center space-x-3">
+          <Phone />
+          <p className="">
+            Call Us now for your One Stop Shop HR Solutions on +234 708 005 5138
+          </p>
+        </div>
+        <Instagram color="#fff" />
+      </div>
+      <div className="lg:w-[95vw] z-50 relative flex justify-between items-center text-[#000] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
         <div className="flex items-center space-x-20">
           <NavLink to="/">
             <img src="/assets/logo.svg" alt="logo" />
@@ -65,10 +75,10 @@ const TopNav = () => {
 
         <NavLink
           to="/contact"
-          className="lg:flex hidden items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors"
+          className="lg:flex hidden text-[#fff] items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors"
         >
           <span>Contact us</span>
-          <TelIcon />
+          <TelIcon color="#fff" />
         </NavLink>
 
         <div
@@ -92,7 +102,7 @@ const TopNav = () => {
           />
         </motion.div>
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 

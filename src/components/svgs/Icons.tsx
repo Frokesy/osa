@@ -8,7 +8,7 @@ export const CaretDown = () => (
   >
     <path
       d="M15.3926 7.50004C15.3926 7.50004 11.7102 12.5 10.3926 12.5C9.07501 12.5 5.39264 7.5 5.39264 7.5"
-      stroke="white"
+      stroke="black"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -16,7 +16,7 @@ export const CaretDown = () => (
   </svg>
 );
 
-export const TelIcon = () => (
+export const TelIcon = ({ color }: { color?: string }) => (
   <svg
     width="20"
     height="20"
@@ -27,13 +27,13 @@ export const TelIcon = () => (
     <g clipPath="url(#clip0_897_5192)">
       <path
         d="M3.14798 9.95131C2.35796 8.57377 1.9765 7.44892 1.74649 6.30869C1.40631 4.62233 2.1848 2.97502 3.47444 1.92391C4.0195 1.47967 4.64432 1.63145 4.96663 2.20968L5.69428 3.51511C6.27103 4.54982 6.55941 5.06718 6.50221 5.61568C6.44501 6.16417 6.0561 6.6109 5.27827 7.50435L3.14798 9.95131ZM3.14798 9.95131C4.74705 12.7396 7.25649 15.2504 10.048 16.8513M10.048 16.8513C11.4255 17.6414 12.5504 18.0228 13.6906 18.2528C15.377 18.593 17.0243 17.8145 18.0754 16.5249C18.5196 15.9798 18.3679 15.355 17.7896 15.0327L16.4842 14.305C15.4495 13.7283 14.9321 13.4399 14.3836 13.4971C13.8351 13.5543 13.3884 13.9432 12.495 14.721L10.048 16.8513Z"
-        stroke="white"
+        stroke={color || "black"}
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
       <path
         d="M11.6666 5.69256C12.8527 6.19621 13.8031 7.14666 14.3068 8.33268M12.2116 1.66602C15.1593 2.51665 17.4826 4.83978 18.3333 7.78737"
-        stroke="white"
+        stroke={color || "black"}
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -56,7 +56,7 @@ export const Hamburger = () => (
   >
     <path
       d="M11 20H29M11 14H29M11 26H29"
-      stroke="white"
+      stroke="black"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -1834,7 +1834,7 @@ export const InstagramIcon = () => (
   </svg>
 );
 
-  export const XIcon = ({ className = "" }) => (
+export const XIcon = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -1842,6 +1842,47 @@ export const InstagramIcon = () => (
     stroke="currentColor"
     className={className}
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 18L18 6M6 6l12 12"
+    />
+  </svg>
+);
+
+export const SkillIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_1050_4284)">
+      <path
+        d="M15.8333 8.33333C14.1625 7.80679 12.1568 7.5 9.99999 7.5C7.84315 7.5 5.83748 7.80679 4.16666 8.33333V11.25C5.83748 10.7235 7.84315 10.4167 9.99999 10.4167C12.1568 10.4167 14.1625 10.7235 15.8333 11.25V8.33333Z"
+        stroke="#01110D"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.8333 10.8333V12.5193C15.8333 14.2952 14.9733 15.9408 13.5676 16.8545L12.401 17.6128C10.9231 18.5735 9.07686 18.5735 7.59901 17.6128L6.43234 16.8545C5.02672 15.9408 4.16666 14.2952 4.16666 12.5193V10.8333"
+        stroke="#01110D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15.8333 8.33335L16.7714 7.83927C17.8239 7.14898 18.3502 6.80383 18.3329 6.31069C18.3156 5.81756 17.7666 5.51755 16.6687 4.91753L12.7294 2.76466C11.3901 2.03268 10.7204 1.66669 9.99999 1.66669C9.2796 1.66669 8.60992 2.03268 7.27056 2.76466L3.33126 4.91753C2.23335 5.51755 1.6844 5.81756 1.66707 6.31069C1.64974 6.80383 2.17603 7.14898 3.2286 7.83927L4.16666 8.33335"
+        stroke="#01110D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1050_4284">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
   </svg>
 );
