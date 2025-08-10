@@ -3,9 +3,9 @@ import TopNav from "../../components/defaults/TopNav";
 import {
   BriefcaseIcon,
   ClockIcon,
-  DollarIcon,
   LocationIcon,
   MiniCalendarIcon,
+  NairaIcon,
   ServiceIcon,
 } from "../../components/svgs/Icons";
 import Footer from "../../components/defaults/Footer";
@@ -220,7 +220,7 @@ const Careers = () => {
                         <p className="text-[#78797B]">{job.type}</p>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <DollarIcon />
+                        <NairaIcon />
                         <p className="text-[#78797B]">{job.salary}</p>
                       </div>
                     </div>

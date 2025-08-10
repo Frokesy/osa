@@ -1,6 +1,7 @@
 import Container from "../../components/defaults/Container"
 import Footer from "../../components/defaults/Footer"
 import About from "../../components/sections/home/About"
+import Application from "../../components/sections/home/Application"
 import Hero from "../../components/sections/home/Hero"
 import NewsHighlights from "../../components/sections/home/NewsHighlights"
 import Programs from "../../components/sections/home/Programs"
@@ -14,6 +15,7 @@ const Home = () => {
         <About />
         <Services />
         <Programs />
+        <Application />
         <NewsHighlights />
         <TrustedClients />
         <Footer />
