@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { InstagramIcon, PhoneIcon, SubmitIcon, UserIcon } from "../svgs/Icons";
+import { InstagramIcon, PhoneIcon, SubmitIcon, UserIcon, WhatsAppIcon } from "../svgs/Icons";
 
 const Footer = () => {
   return (
-    <div className="mt-20 bg-[#223D94] text-[#fff]">
+    <div className="mt-20 bg-[#F5F5F5]">
       <div className="lg:w-[90vw] mx-auto pt-20">
-        <h2 className="lg:text-[36px] text-[24px] font-bold lg:px-0 px-4">Free Consultation</h2>
-        <p className="lg:px-0 px-4">
+        <h2 className="lg:text-[36px] text-[24px] font-bold lg:px-0 px-4 text-[#223D94]">Free Consultation</h2>
+        <p className="lg:px-0 px-4 text-[#667085]">
           You deserve a one on one conversation with us to stay One step ahead!
         </p>
 
@@ -15,7 +15,7 @@ const Footer = () => {
             <img
               src="/assets/footer-img.png"
               alt="footer-img"
-              className="w-[100%] h-[250px]"
+              className="w-[100%] h-[300px]"
             />
           </div>
 
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="bg-[#0E1A3E] py-20 lg:rounded-t-2xl mt-20 px-4 lg:px-10">
+        <div className="bg-[#fff] py-20 lg:rounded-t-2xl mt-20 px-4 lg:px-10">
           <div className="flex justify-between lg:flex-row flex-col lg:space-x-10 space-y-10 lg:space-y-0">
             <div className="flex flex-col space-y-2">
               <img
@@ -117,7 +117,10 @@ const Footer = () => {
 
           <div className="mt-20 flex justify-between items-center">
             <p className="lg:text-[16px] text-[12px]">© 2025 1stepahead All rights reserved.</p>
-            <InstagramIcon />
+            <div className="flex space-x-3 items-center">
+              <WhatsAppIcon />
+              <InstagramIcon />
+            </div>
           </div>
         </div>
       </div>
