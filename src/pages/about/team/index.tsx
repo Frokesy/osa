@@ -51,77 +51,54 @@ const Team = () => {
   ];
   return (
     <Container>
-      <div className="bg-[url('/assets/team-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
-        <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
-          <TopNav />
+      <TopNav />
+      <div className="w-[90vw] rounded-4xl lg:mt-20 mt-10 lg:mb-10 mx-auto">
+        <div className="flex items-center space-x-3">
+          <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
+          <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
+            About Us
+          </p>
+        </div>
 
-          <div className="bg-[#808080]/40 backdrop-blur-xs w-[95vw] lg:p-10 p-6 rounded-4xl mt-[20vh] lg:mt-[25vh] text-[#fff] mx-auto">
-            <div className="flex items-center space-x-3">
-              <div className="h-0.5 rounded-full w-6 bg-[#ED1C24]"></div>
-              <p className="text-[12px] uppercase">About Us</p>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="">
-                <h2 className="lg:text-[48px] text-[20px] font-semibold uppercase">
-                  Our team
-                </h2>
-                <p className="text-[14px] pt-2">
-                  Meet our dedicated team of HR professionals driven by passion,
-                  expertise, and a shared commitment to helping your business
-                  thrive.
-                </p>
-              </div>
-              <TeamIcon />
-            </div>
+        <div className="flex items-center justify-between lg:mt-0 -mt-4">
+          <div className="w-[70%]">
+            <h2 className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase">
+              Our Team
+            </h2>
+            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+              Meet our dedicated team of HR professionals driven by passion,
+              expertise, and a shared commitment to helping your business
+              thrive.
+            </p>
+          </div>
+          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+            <TeamIcon />
           </div>
         </div>
       </div>
 
-      <div className="lg:mt-20 mt-10 grid lg:grid-cols-2 w-[95vw] lg:gap-20 gap-10 mx-auto">
+      <div className="lg:mt-20 mt-10 grid lg:grid-cols-3 grid-cols-1 w-[90vw] lg:gap-20 gap-6 mx-auto">
         {teamMembers.map((member) => (
           <div
             key={member.id}
-            style={{ backgroundColor: member.bgColor }}
-            className={`${
-              member.id % 2 === 0
-                ? "flex-row-reverse lg:pl-10 pl-3 pr-10 lg:pr-20 rounded-l-full"
-                : "flex-row lg:pl-20 pl-6 pr-3 lg:pr-10 rounded-r-full"
-            } py-4 flex justify-between items-center`}
+            className="relative lg:h-[480px] lg:w-[390px] w-[90vw] h-[360px] bg-center rounded-xl bg-cover overflow-hidden"
+            style={{
+              backgroundImage: `url(${member.image})`,
+            }}
           >
-            <div
-              className={`${
-                member.bgColor === "#F6F7F7" ? "text-[#000]" : "text-[#fff]"
-              } flex flex-col space-y-4`}
-            >
-              <div className="flex justify-between items-center lg:space-x-[2vw] w-[100%]">
-                <h2 className="lg:text-[24px] text-[16px] font-semibold">{member.name}</h2>
-                <div className="lg:block hidden">
-                    <DiagArrow
-                  color={member.bgColor === "#F6F7F7" ? "#000000" : "#ffffff"}
-                />
+            <div className="absolute bottom-0 flex flex-col items-end pb-4 mb-6 left-2 lg:left-3 w-[95%] bg-white text-[#333] rounded-xl lg:text-[20px] p-3">
+              <div className="flex justify-between items-center w-full">
+                <h2 className="lg:text-[24px] text-[20px] font-semibold">{member.name}</h2>
+                <DiagArrow color="#223D94" />
+              </div>
+              <div className="flex justify-between items-center w-full mt-4">
+                <p className="lg:text-[16px] text-[14px]">{member.role}</p>
+                <div className="flex items-center space-x-3">
+                  <LinkedIn color="#223D94" />
+                  <Twitter color="#223D94" />
+                  <Website color="#223D94" />
                 </div>
               </div>
-              <p className="lg:text-[16px] text-[14px]">{member.role}</p>
-              <div className="flex items-center space-x-3">
-                <Twitter
-                  color={member.bgColor === "#F6F7F7" ? "#000000" : "#ffffff"}
-                />
-                <LinkedIn
-                  color={member.bgColor === "#F6F7F7" ? "#000000" : "#ffffff"}
-                />
-                <Website
-                  color={member.bgColor === "#F6F7F7" ? "#000000" : "#ffffff"}
-                />
-              </div>
-            </div>
-
-            <div className="lg:w-[240px] lg:h-[240px] w-[100px] h-[100px]">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-[100%] h-[100%] rounded-full object-cover"
-              />
             </div>
           </div>
         ))}
