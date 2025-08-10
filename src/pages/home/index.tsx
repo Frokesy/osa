@@ -7,6 +7,7 @@ import Hero from "../../components/sections/home/Hero"
 import NewsHighlights from "../../components/sections/home/NewsHighlights"
 import Programs from "../../components/sections/home/Programs"
 import Services from "../../components/sections/home/Services"
+import Testimonials from "../../components/sections/home/Testimonials"
 import TrustedClients from "../../components/sections/home/TrustedClients"
 
 const Home = () => {
@@ -18,8 +19,9 @@ const Home = () => {
         <Programs />
         <Application />
         <Gallery />
-        <NewsHighlights />
+        <Testimonials />
         <TrustedClients />
+        <NewsHighlights />
         <Footer />
     </Container>
   )
