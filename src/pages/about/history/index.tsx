@@ -7,7 +7,7 @@ const History = () => {
   return (
     <Container>
       <TopNav />
-      <div className="w-[90vw] rounded-4xl lg:mt-20 mt-10 lg:mb-10 mx-auto">
+      <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
         <div className="flex items-center space-x-3">
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
@@ -15,7 +15,7 @@ const History = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-between lg:mt-0 -mt-4">
+        <div className="flex items-center justify-between lg:-mt-6 -mt-4">
           <div className="w-[70%]">
             <h2 className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase">
               Who we are
