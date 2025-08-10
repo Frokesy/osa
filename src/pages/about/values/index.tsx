@@ -42,58 +42,58 @@ const CoreValues = () => {
   ];
   return (
     <Container>
-      <div className="bg-[url('/assets/about-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
-        <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
-          <TopNav />
+      <TopNav />
+      <div className="w-[90vw] rounded-4xl lg:mt-20 mt-10 lg:mb-10 mx-auto">
+        <div className="flex items-center space-x-3">
+          <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
+          <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
+            About Us
+          </p>
+        </div>
 
-          <div className="bg-[#808080]/40 backdrop-blur-xs w-[95vw] lg:p-10 p-6 rounded-4xl mt-[20vh] lg:mt-[25vh] text-[#fff] mx-auto">
-            <div className="flex items-center space-x-3">
-              <div className="h-0.5 rounded-full w-6 bg-[#ED1C24]"></div>
-              <p className="text-[12px] uppercase">About Us</p>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="">
-                <h2 className="lg:text-[48px] text-[20px] font-semibold uppercase">
-                  Core Values
-                </h2>
-                <p className="text-[14px] pt-2">
-                  We are guided and grounded by the following values.
-                </p>
-              </div>
-              <ValueIcon />
-            </div>
+        <div className="flex items-center justify-between lg:mt-0 -mt-4">
+          <div className="w-[70%]">
+            <h2 className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase">
+              Core Values
+            </h2>
+            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+              We are guided and grounded by the following values.{" "}
+            </p>
+          </div>
+          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+            <ValueIcon />
           </div>
         </div>
       </div>
+      <div className="bg-[url('/assets/about-hero.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end">
+        <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
+          <div className="flex items-center space-x-3">
+            <ServiceIcon color="#223D94" size="40" />
 
-      <div className="bg-[#1F3887] w-[100%] mt-6 text-[#fff] py-14 flex flex-col items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <div className="lg:block hidden">
-            <ServiceIcon />
+            <h2 className="text-[16px] text-[#223D94] font-bold uppercase">
+              Onestepahead
+            </h2>
           </div>
-          <h2 className="lg:text-[36px] uppercase font-semibold">
-            Onestep<span className="text-[#ED1C24]">ahead</span>
+
+          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+            "Driven by Values. Focused on People. Committed to Results."{" "}
           </h2>
         </div>
-
-        <h2 className="pt-3 lg:text-[48px] text-[24px] lg:w-[60%] text-center font-semibold">
-          "Driven by Values. Focused on People. Committed to Results."{" "}
-        </h2>
       </div>
+      <div className="lg:mt-20 mt-[25vh] flex lg:flex-row flex-col items-center justify-between w-[90vw] mx-auto">
+        <div className="lg:w-[40%]">
+          <ValueMiniIcon />
+          <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
+            Our core values
+          </h2>
+          <p className="lg:text-[20px] text-[14px] pt-3 text-[#1D2939]">
+            At 1StepAhead Consult, our values shape every interaction, decision,
+            and solution we provide. These principles are the foundation of the
+            trust we build with our clients.
+          </p>
+        </div>
 
-      <div className="lg:mt-20 mt-10 w-[95vw] mx-auto">
-        <ValueMiniIcon />
-        <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
-          Our core values
-        </h2>
-        <p className="lg:text-[20px] text-[14px] pt-3 text-[#1D2939]">
-          At 1StepAhead Consult, our values shape every interaction, decision,
-          and solution we provide. These principles are the foundation of the
-          trust we build with our clients.
-        </p>
-
-        <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 gap-6 mt-10">
+        <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-[50%] lg:gap-10 gap-6 mt-10">
           {items.map((item) => (
             <div key={item.id} className="space-y-3">
               <h2 className="text-[20px] font-semibold text-[#1D2939]">

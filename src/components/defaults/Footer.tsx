@@ -15,7 +15,7 @@ const Footer = () => {
             <img
               src="/assets/footer-img.png"
               alt="footer-img"
-              className="w-[100%] h-[300px]"
+              className="w-[100%] h-[250px] lg:h-[300px]"
             />
           </div>
 
@@ -116,7 +116,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-20 flex justify-between items-center">
-            <p className="lg:text-[16px] text-[12px]">© 2025 1stepahead All rights reserved.</p>
+            <p className="lg:text-[16px] text-[10px]">© 2025 1stepahead All rights reserved.</p>
             <div className="flex space-x-3 items-center">
               <WhatsAppIcon />
               <InstagramIcon />
