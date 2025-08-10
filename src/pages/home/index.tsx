@@ -4,6 +4,7 @@ import About from "../../components/sections/home/About"
 import Application from "../../components/sections/home/Application"
 import Gallery from "../../components/sections/home/Gallery"
 import Hero from "../../components/sections/home/Hero"
+import Impact from "../../components/sections/home/Impact"
 import NewsHighlights from "../../components/sections/home/NewsHighlights"
 import Programs from "../../components/sections/home/Programs"
 import Services from "../../components/sections/home/Services"
@@ -19,6 +20,7 @@ const Home = () => {
         <Programs />
         <Application />
         <Gallery />
+        <Impact />
         <Testimonials />
         <TrustedClients />
         <NewsHighlights />
