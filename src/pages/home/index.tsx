@@ -6,6 +6,7 @@ import Gallery from "../../components/sections/home/Gallery"
 import Hero from "../../components/sections/home/Hero"
 import Impact from "../../components/sections/home/Impact"
 import NewsHighlights from "../../components/sections/home/NewsHighlights"
+import NewsLetter from "../../components/sections/home/NewsLetter"
 import Programs from "../../components/sections/home/Programs"
 import Services from "../../components/sections/home/Services"
 import Testimonials from "../../components/sections/home/Testimonials"
@@ -24,6 +25,7 @@ const Home = () => {
         <Testimonials />
         <TrustedClients />
         <NewsHighlights />
+        <NewsLetter />
         <Footer />
     </Container>
   )
