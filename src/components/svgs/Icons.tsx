@@ -1027,10 +1027,10 @@ export const ODCIcon = ({ size }: { size?: string }) => (
   </svg>
 );
 
-export const TeamIcon = () => (
+export const TeamIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -1137,10 +1137,10 @@ export const TeamIcon = () => (
   </svg>
 );
 
-export const ValueIcon = () => (
+export const ValueIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -1247,10 +1247,10 @@ export const ValueMiniIcon = () => (
   </svg>
 );
 
-export const HistoryIcon = () => (
+export const HistoryIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
