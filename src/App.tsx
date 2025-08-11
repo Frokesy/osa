@@ -27,7 +27,7 @@ const App = () => {
     { path: "/services/hra", element: <HrAdvisory /> },
     { path: "/services/rss", element: <RecruitmentServices /> },
     { path: "/services/pcd", element: <PayrollCompensationDevelopment /> },
-    { path: "/services/pms", element: <PerformanceManagementSystem /> },
+    { path: "/services/rs", element: <PerformanceManagementSystem /> },
     { path: "/services/bppm", element: <BusinessProcessManual /> },
     { path: "/services/odc", element: <OrganizationDevelopment /> },
     

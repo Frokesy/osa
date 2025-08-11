@@ -7,7 +7,7 @@ const ServicesDropdown = () => {
     { id: 2, title: "HR Advisory", link: "/services/hra" },
     { id: 3, title: "Recruitment & Selection Services", link: "/services/rss" },
     { id: 4, title: "Payroll Compensation Development", link: "/services/pcd" },
-    { id: 5, title: "Performance Management System", link: "/services/pms" },
+    { id: 5, title: "Recognition System", link: "/services/rs" },
     {
       id: 6,
       title: "Business Process & Policy Manual",
