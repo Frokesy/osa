@@ -25,7 +25,7 @@ const TopNav = () => {
   };
 
   return (
-    <div className="bg-[#fff] shadow-lg">
+    <div className="bg-[#fff] shadow-lg relative">
       <div className="bg-[#223D94] lg:flex hidden justify-between px-20 text-[#fff] items-center py-3">
         <div className="flex items-center space-x-3">
           <Phone />
@@ -35,7 +35,7 @@ const TopNav = () => {
         </div>
         <Instagram color="#fff" />
       </div>
-      <div className="lg:w-[95vw] z-50 relative flex justify-between items-center text-[#000] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
+      <div className="lg:w-[95vw] z-50 flex justify-between items-center text-[#000] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
         <div className="flex items-center space-x-20">
           <NavLink to="/">
             <img src="/assets/logo.svg" alt="logo" />
@@ -43,7 +43,7 @@ const TopNav = () => {
 
           <div className="lg:flex hidden items-center space-x-10">
             {navItems.map((item, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="">
                 {item.path ? (
                   <NavLink
                     to={item.path}

@@ -189,10 +189,10 @@ export const NewsIcon = () => (
   </svg>
 );
 
-export const VSDIcon = () => (
+export const VSDIcon =({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -380,10 +380,10 @@ export const SettingsIcon = () => (
   </svg>
 );
 
-export const TMOIcon = () => (
+export const TMOIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -508,10 +508,10 @@ export const TMOIcon = () => (
   </svg>
 );
 
-export const PCDIcon = () => (
+export const PCDIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -634,10 +634,10 @@ export const PCDIcon = () => (
   </svg>
 );
 
-export const PMSIcon = () => (
+export const PMSIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -771,10 +771,10 @@ export const PMSIcon = () => (
     </defs>
   </svg>
 );
-export const BPPMIcon = () => (
+export const BPPMIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -897,10 +897,10 @@ export const BPPMIcon = () => (
   </svg>
 );
 
-export const ODCIcon = () => (
+export const ODCIcon = ({ size }: { size?: string }) => (
   <svg
-    width="160"
-    height="160"
+    width={size || "160"}
+    height={size || "160"}
     viewBox="0 0 160 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
