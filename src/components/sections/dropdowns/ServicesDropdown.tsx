@@ -15,7 +15,7 @@ const ServicesDropdown = () => {
     },
     {
       id: 7,
-      title: "Organization Development & Change",
+      title: "Consulting for govt. & NGOs.",
       link: "/services/odc",
     },
   ];

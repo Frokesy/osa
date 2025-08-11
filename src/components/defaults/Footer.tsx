@@ -1,11 +1,36 @@
 import { NavLink } from "react-router-dom";
-import { InstagramIcon, PhoneIcon, SubmitIcon, UserIcon, WhatsAppIcon } from "../svgs/Icons";
+import {
+  InstagramIcon,
+  PhoneIcon,
+  SubmitIcon,
+  UserIcon,
+  WhatsAppIcon,
+} from "../svgs/Icons";
 
 const Footer = () => {
+  const serviceItems = [
+    { id: 1, title: "Vocational Skills Development", link: "/services/vsd" },
+    { id: 2, title: "HR Advisory", link: "/services/hra" },
+    { id: 3, title: "Recruitment & Selection Services", link: "/services/rss" },
+    { id: 4, title: "Payroll Compensation Development", link: "/services/pcd" },
+    { id: 5, title: "Recognition System", link: "/services/rs" },
+    {
+      id: 6,
+      title: "Business Process & Policy Manual",
+      link: "/services/bppm",
+    },
+    {
+      id: 7,
+      title: "Consulting for govt. & NGOs.",
+      link: "/services/odc",
+    },
+  ];
   return (
     <div className="mt-20 bg-[#F5F5F5]">
       <div className="lg:w-[90vw] mx-auto pt-20">
-        <h2 className="lg:text-[36px] text-[24px] font-bold lg:px-0 px-4 text-[#223D94]">Free Consultation</h2>
+        <h2 className="lg:text-[36px] text-[24px] font-bold lg:px-0 px-4 text-[#223D94]">
+          Free Consultation
+        </h2>
         <p className="lg:px-0 px-4 text-[#667085]">
           You deserve a one on one conversation with us to stay One step ahead!
         </p>
@@ -82,28 +107,24 @@ const Footer = () => {
             <div className="lg:w-[50%] flex lg:flex-row flex-col space-y-10 lg:space-y-0 justify-between">
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">About</h2>
-                <NavLink to="/about/history" className="text-[14px]">Who we are</NavLink>
-                <NavLink to="/about/core-values" className="text-[14px]">Core values</NavLink>
-                <NavLink to="/about/team" className="text-[14px]">Our team</NavLink>
+                <NavLink to="/about/history" className="text-[14px]">
+                  Who we are
+                </NavLink>
+                <NavLink to="/about/core-values" className="text-[14px]">
+                  Core values
+                </NavLink>
+                <NavLink to="/about/team" className="text-[14px]">
+                  Our team
+                </NavLink>
               </div>
 
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">Resources</h2>
-                <NavLink to="/services/vsd" className="text-[14px]">
-                  Vocational skills development
-                </NavLink>
-                <NavLink to="/services/tmo" className="text-[14px]">Talent management</NavLink>
-                <NavLink to="/services/rsss" className="text-[14px]">Recruitment services</NavLink>
-                <NavLink to="/services/pcd" className="text-[14px]">Payroll compensation</NavLink>
-                <NavLink to="/services/pms" className="text-[14px]">
-                  Performance management system
-                </NavLink>
-                <NavLink to="/services/bppm" className="text-[14px]">
-                  Business process & policy manual
-                </NavLink>
-                <NavLink to="/services/odc" className="text-[14px]">
-                  Organisation development & change
-                </NavLink>
+                {serviceItems.map((item) => (
+                  <NavLink key={item.id} to={item.link} className="text-[14px]">
+                    {item.title}
+                  </NavLink>
+                ))}
               </div>
 
               <div className="flex flex-col space-y-4">
@@ -116,7 +137,9 @@ const Footer = () => {
           </div>
 
           <div className="mt-20 flex justify-between items-center">
-            <p className="lg:text-[16px] text-[10px]">© 2025 1stepahead All rights reserved.</p>
+            <p className="lg:text-[16px] text-[10px]">
+              © 2025 1stepahead All rights reserved.
+            </p>
             <div className="flex space-x-3 items-center">
               <WhatsAppIcon />
               <InstagramIcon />
