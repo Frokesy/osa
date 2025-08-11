@@ -5,7 +5,7 @@ import TopNav from "../../components/defaults/TopNav";
 const Contact = () => {
   return (
     <Container>
-      <div className="py-6 bg-red-700">
+      <div className="bg-red-700">
         <TopNav />
       </div>
       <div className="flex justify-between">
