@@ -108,7 +108,7 @@ const RecruitmentServices = () => {
         </p>
       </div>
 
-      <div className="w-[95vw] mx-auto mt-20 text-[#fff] space-y-10">
+      <div className="w-[90vw] mx-auto mt-20 text-[#fff] space-y-10">
         {skillItems.map((item) => (
           <div
             key={item.id}

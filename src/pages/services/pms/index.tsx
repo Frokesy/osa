@@ -122,7 +122,7 @@ const PerformanceManagementSystem = () => {
         </div>
       </div>
 
-      <div className="lg:mt-20 mt-[20vh] w-[95vw] mx-auto">
+      <div className="lg:mt-20 mt-[20vh] w-[90vw] mx-auto">
         <SettingsIcon />
         <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
           Recognition System
@@ -143,7 +143,7 @@ const PerformanceManagementSystem = () => {
         </p>
       </div>
 
-      <div className="w-[95vw] mx-auto mt-20 text-[#fff] space-y-10">
+      <div className="w-[90vw] mx-auto mt-20 text-[#fff] space-y-10">
         {skillItems.map((item) => (
           <div
             key={item.id}
