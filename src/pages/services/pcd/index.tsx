@@ -75,48 +75,47 @@ const PayrollCompensationDevelopment = () => {
   ];
   return (
     <Container>
-      <div className="bg-[url('/assets/services-nine.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
-        <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
-          <TopNav />
+      <TopNav />
+      <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
+        <div className="flex items-center space-x-3">
+          <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
+          <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
+            Services
+          </p>
+        </div>
 
-          <div className="bg-[#808080]/40 backdrop-blur-xs w-[95vw] lg:p-10 p-6 rounded-4xl mt-[20vh] lg:mt-[25vh] text-[#fff] mx-auto">
-            <div className="flex items-center space-x-3">
-              <div className="h-0.5 rounded-full w-6 bg-[#ED1C24]"></div>
-              <p className="text-[12px] uppercase">Services</p>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="">
-                <h2 className="lg:text-[48px] text-[20px] font-semibold uppercase">
-                  Payroll Compensation Development
-                </h2>
-                <p className="text-[14px] pt-2">
-                  Empowering individuals with practical, job-ready skills to
-                  enhance performance and drive career growth
-                </p>
-              </div>
-              <PCDIcon />
-            </div>
+        <div className="flex items-center justify-between lg:mt-0 ">
+          <div className="w-[70%]">
+            <h2 className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase">
+              Payroll Compensation Development
+            </h2>
+            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+              Empowering individuals with practical, job-ready skills to enhance
+              performance and drive career growth
+            </p>
+          </div>
+          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+            <PCDIcon />
           </div>
         </div>
       </div>
+      <div className="bg-[url('/assets/services-nine.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end">
+        <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
+          <div className="flex items-center space-x-3">
+            <ServiceIcon color="#223D94" size="40" />
 
-      <div className="bg-[#1F3887] w-[100%] mt-6 text-[#fff] py-14 flex flex-col items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <div className="lg:block hidden">
-            <ServiceIcon />
+            <h2 className="text-[16px] text-[#223D94] font-bold uppercase">
+              Onestepahead
+            </h2>
           </div>
-          <h2 className="lg:text-[36px] uppercase font-semibold">
-            Onestep<span className="text-[#ED1C24]">ahead</span>
+
+          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+            "Designing fair, compliant, and efficient employee pay structures."{" "}
           </h2>
         </div>
-
-        <h2 className="pt-3 lg:text-[48px] text-[24px] lg:w-[60%] text-center font-semibold">
-          "Designing fair, compliant, and efficient employee pay structures."
-        </h2>
       </div>
 
-      <div className="lg:mt-20 mt-10 w-[95vw] mx-auto">
+      <div className="lg:mt-20 mt-[23vh] w-[90vw] mx-auto">
         <SettingsIcon />
         <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
           Payroll Compensation Development
@@ -145,26 +144,14 @@ const PayrollCompensationDevelopment = () => {
             style={{ backgroundColor: item.bg }}
             className={`${
               item.id % 2 === 0
-                ? "lg:flex-row-reverse flex-col text-[#000]"
-                : "lg:flex-row flex-col"
+                ? "lg:flex-row flex-col text-[#000]"
+                : "lg:flex-row flex-col lg:p-10"
             } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
           >
-            <div className="lg:w-[55%]">
-              <img
-                src={item.image}
-                alt={item.title}
-                className={`${
-                  item.id % 2 === 0
-                    ? "lg:rounded-l-full lg:rounded-bl-full lg:rounded-b-none rounded-b-full"
-                    : "lg:rounded-r-full lg:rounded-br-full lg:rounded-b-none rounded-b-full"
-                } lg:h-[414px] h-[241px] w-[100%]`}
-              />
-            </div>
-
             <div
               className={`${
                 item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
-              } lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
+              } lg:w-[70%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
             >
               <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
                 {item.title}
