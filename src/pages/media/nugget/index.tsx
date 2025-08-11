@@ -110,8 +110,8 @@ const HrNugget = () => {
         </div>
       </div>
 
-      <div className="flex justify-between w-[90vw] mx-auto mt-10">
-        <div className="flex items-center space-x-3 border border-[#ccc] p-3 rounded-lg w-[30%]">
+      <div className="flex lg:flex-row flex-col justify-between w-[90vw] mx-auto mt-10">
+        <div className="flex items-center space-x-3 border border-[#ccc] p-3 rounded-lg lg:w-[30%]">
           <SearchIcon />
           <input
             type="text"
@@ -120,7 +120,7 @@ const HrNugget = () => {
           />
         </div>
 
-        <div className="border border-[#ccc] p-3 rounded-lg w-[30%]">
+        <div className="border border-[#ccc] p-3 rounded-lg lg:w-[30%] mt-6 lg:mt-0">
           <select className="w-full outline-none">
             <option value="">Newest first</option>
             <option value="oldest">Oldest first</option>
