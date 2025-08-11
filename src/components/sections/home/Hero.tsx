@@ -4,7 +4,7 @@ import { SkillIcon, TelIcon } from "../../svgs/Icons";
 const Hero = () => {
   return (
     <div className="bg-[url('/assets/hero-img.png')] min-h-screen bg-center bg-cover bg-no-repeat">
-      <div className="bg-[#000000]/20 min-h-screen">
+      <div className="bg-[#223D94]/20 min-h-screen">
         <TopNav />
 
         <div className="lg:mt-[10vh] mt-20 flex flex-col justify-center items-center text-white space-y-6">

@@ -189,7 +189,7 @@ export const NewsIcon = () => (
   </svg>
 );
 
-export const VSDIcon =({ size }: { size?: string }) => (
+export const VSDIcon = ({ size }: { size?: string }) => (
   <svg
     width={size || "160"}
     height={size || "160"}
@@ -2202,5 +2202,65 @@ export const CopyIcon = () => (
         <rect width="20" height="20" fill="white" />
       </clipPath>
     </defs>
+  </svg>
+);
+
+export const GreaterThanIcon = ({ color }: { color: string }) => (
+  <svg
+    width="8"
+    height="14"
+    viewBox="0 0 8 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1.33348 1.6665C1.33348 1.6665 6.66676 5.59445 6.66677 6.99988C6.66678 8.40531 1.33344 12.3332 1.33344 12.3332"
+      stroke={color || "#1F3887"}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const LessThanIcon = ({ color }: { color: string }) => (
+  <svg
+    width="8"
+    height="14"
+    viewBox="0 0 8 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.66652 1.6665C6.66652 1.6665 1.33324 5.59445 1.33323 6.99988C1.33322 8.40531 6.66656 12.3332 6.66656 12.3332"
+      stroke={color || "#D7D8D9"}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const BlueDot = () => (
+  <svg
+    width="10"
+    height="10"
+    viewBox="0 0 10 10"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="10" height="10" rx="5" fill="#182B69" />
+  </svg>
+);
+
+export const GreyDot = () => (
+  <svg
+    width="10"
+    height="10"
+    viewBox="0 0 10 10"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="10" height="10" rx="5" fill="#F4EBFF" />
   </svg>
 );

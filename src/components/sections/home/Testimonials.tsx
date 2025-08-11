@@ -1,6 +1,76 @@
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star } from "lucide-react";
+import {
+  BlueDot,
+  GreaterThanIcon,
+  GreyDot,
+  LessThanIcon,
+} from "../../svgs/Icons";
+
+const testimonials = [
+  {
+    text: `Working with this HR firm as a vocational trainer has been a rewarding experience. They provided the structure, support, and resources needed to teach effectively. I've seen real growth in my trainees, and that's the most fulfilling part.`,
+    name: "Aisha Bello",
+    role: "Fashion Design Trainer",
+    img: "/assets/aisha.png",
+  },
+  {
+    text: `The team's professionalism and dedication are unmatched. They helped us find the right talent quickly and efficiently, saving us both time and resources.`,
+    name: "John Smith",
+    role: "HR Manager",
+    img: "/assets/aisha.png",
+  },
+  {
+    text: `I appreciate their commitment to understanding our unique needs. Their recruitment process is thorough and tailored, which made all the difference.`,
+    name: "Mary Johnson",
+    role: "Operations Lead",
+    img: "/assets/aisha.png",
+  },
+];
+
+const fadeVariants = {
+  enter: { opacity: 0 },
+  center: { opacity: 1, transition: { duration: 1.2 } },
+  exit: { opacity: 0, transition: { duration: 1.2 } },
+};
 
 const Testimonials = () => {
+  const [index, setIndex] = useState(0);
+  const timerRef = useRef<number | null>(null);
+
+  const startTimer = () => {
+    if (timerRef.current !== null) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current !== null) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  const nextTestimonial = () => {
+    if (index < testimonials.length - 1) {
+      setIndex((prev) => prev + 1);
+      startTimer();
+    }
+  };
+
+  const prevTestimonial = () => {
+    if (index > 0) {
+      setIndex((prev) => prev - 1);
+      startTimer();
+    }
+  };
+
   return (
     <div className="w-[85vw] mx-auto mt-20">
       <div className="flex flex-col items-center justify-center pt-10">
@@ -13,27 +83,69 @@ const Testimonials = () => {
       </div>
 
       <div className="flex flex-col space-y-6 mt-10">
-        <h2 className="text-[#000] lg:text-[36px] text-[18px] font-semibold text-center">
-          "Working with this HR firm as a vocational trainer has been a
-          rewarding experience. They provided the structure, support, and
-          resources needed to teach effectively. I&apos;ve seen real growth in
-          my trainees, and that&apos;s the most fulfilling part."
-        </h2>
-        <div className="space-y-3 flex flex-col items-center">
-          <img
-            src="/assets/aisha.png"
-            alt="aisha"
-            className="w-[80px] h-[80px] rounded-full"
-          />
-          <h3 className="text-[#000] text-[18px] font-semibold">Aisha Bello</h3>
-          <p className="text-[#667085]">Fashion Design Trainer</p>
-          <div className="flex items-center space-x-2 mt-2">
-            <Star fill="#FEC84B" stroke="#FEC84B" />
-            <Star fill="#FEC84B" stroke="#FEC84B" />
-            <Star fill="#FEC84B" stroke="#FEC84B" />
-            <Star fill="#FEC84B" stroke="#FEC84B" />
-            <Star fill="#FEC84B" stroke="#FEC84B" />
+        <div className="flex flex-col items-center space-y-6 h-[400px] lg:min-h-[450px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              variants={fadeVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="flex flex-col items-center space-y-6"
+            >
+              <h2 className="text-[#000] lg:text-[36px] text-[18px] font-semibold text-center">
+                "{testimonials[index].text}"
+              </h2>
+              <div className="space-y-3 flex flex-col items-center">
+                <img
+                  src={testimonials[index].img}
+                  alt={testimonials[index].name}
+                  className="w-[80px] h-[80px] rounded-full"
+                />
+                <h3 className="text-[#000] text-[18px] font-semibold">
+                  {testimonials[index].name}
+                </h3>
+                <p className="text-[#667085]">{testimonials[index].role}</p>
+                <div className="flex items-center space-x-2 mt-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} fill="#FEC84B" stroke="#FEC84B" />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex items-center space-x-10 justify-center mt-10">
+          <button
+            onClick={prevTestimonial}
+            disabled={index === 0}
+            className={`bg-[#fff] shadow-xl px-4 py-3 rounded-full ${
+              index === 0 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            <LessThanIcon color={index === 0 ? "#D7D8D9" : "#1F3887"} />
+          </button>
+
+          <div className="flex space-x-3">
+            {testimonials.map((_, i) =>
+              i === index ? <BlueDot key={i} /> : <GreyDot key={i} />
+            )}
           </div>
+
+          <button
+            onClick={nextTestimonial}
+            disabled={index === testimonials.length - 1}
+            className={`bg-[#fff] py-3 px-4 shadow-xl rounded-full ${
+              index === testimonials.length - 1
+                ? "opacity-50 cursor-not-allowed"
+                : ""
+            }`}
+          >
+            <GreaterThanIcon
+              color={index === testimonials.length - 1 ? "#D7D8D9" : "#1F3887"}
+            />
+          </button>
         </div>
       </div>
     </div>
