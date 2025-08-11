@@ -28,12 +28,13 @@ const Drawer = ({
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "tween", duration: 0.3 }}
-          className="bg-gray-900 text-white fixed top-0 left-0 w-full min-h-screen z-[100] px-6 py-10 space-y-6 lg:hidden overflow-y-auto"
+          className="bg-[#fff] text-[#333] fixed top-0 left-0 w-full max-h-screen z-[100] px-6 py-10 space-y-6 lg:hidden overflow-y-auto"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <div className="flex justify-end">
             <button
               onClick={closeDrawer}
-              className="text-white text-3xl font-bold hover:text-red-500"
+              className="text-[#333] text-3xl font-bold hover:text-red-500"
               aria-label="Close"
             >
               &times;
@@ -109,7 +110,7 @@ const Drawer = ({
             <NavLink
               to="/contact"
               onClick={closeDrawer}
-              className="bg-[#E30613] px-6 py-3 text-center rounded-xl block hover:bg-[#c0050f]"
+              className="bg-[#E30613] text-[#fff] px-6 py-3 text-center rounded-xl block hover:bg-[#c0050f]"
             >
               Contact Us
             </NavLink>

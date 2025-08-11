@@ -67,7 +67,7 @@ const ServicesDropdown = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
-      className="lg:absolute bg-[#fff] w-[90vw] text-[#333] z-50 lg:rounded-xl left-0 lg:shadow-3xl lg:top-[17vh] lg:p-10 p-3"
+      className="lg:absolute bg-[#fff] w-[90vw] text-[#333] z-50 lg:rounded-xl left-0 lg:shadow-3xl lg:top-[17vh] lg:p-10 p-3 mt-4 lg:mt-0"
     >
       <h2 className="text-[14px] lg:block hidden text-[#1F3887] font-semibold mb-6">Our Services</h2>
       <div className="gap-10 grid grid-cols-1 lg:grid-cols-3">

@@ -8,7 +8,7 @@ const AboutDropdown = () => {
       id: 1,
       title: "Who we are",
       link: "/about/history",
-      desc: "TOur company’s history and the value we provide.",
+      desc: "Our company’s history and the value we provide.",
       icon: <HistoryIcon size="48" />,
     },
     {
@@ -32,7 +32,7 @@ const AboutDropdown = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
-      className="lg:absolute bg-[#fff] w-[90vw] text-[#333] z-50 lg:rounded-xl left-0 lg:shadow-3xl lg:top-[17vh] lg:p-10 p-3"
+      className="lg:absolute bg-[#fff] w-[90vw] text-[#333] z-50 lg:rounded-xl left-0 lg:shadow-3xl lg:top-[17vh] lg:p-10 p-3 mt-4 lg:mt-0"
     >
       <h2 className="text-[14px] lg:block hidden text-[#1F3887] font-semibold mb-6">
         About
