@@ -15,12 +15,14 @@ import Careers from "./pages/careers";
 import NewsHighlights from "./pages/media/highlights";
 import HrNugget from "./pages/media/nugget";
 import HrAdvisory from "./pages/services/hra";
+import Gallery from "./pages/gallery";
 
 const App = () => {
   const router = createBrowserRouter([
     { path: "/", element: <Home /> },
     { path: "/contact", element: <Contact /> },
     { path: "/career", element: <Careers /> },
+    { path: "/gallery", element: <Gallery /> },
     
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
