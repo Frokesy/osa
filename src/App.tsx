@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import VocationalSkillsDevelopment from "./pages/services/vsd";
-import TalentManagement from "./pages/services/tmo";
 import RecruitmentServices from "./pages/services/rss";
 import PayrollCompensationDevelopment from "./pages/services/pcd";
 import PerformanceManagementSystem from "./pages/services/pms";
@@ -15,6 +14,7 @@ import History from "./pages/about/history";
 import Careers from "./pages/careers";
 import NewsHighlights from "./pages/media/highlights";
 import HrNugget from "./pages/media/nugget";
+import HrAdvisory from "./pages/services/hra";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const App = () => {
     
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
-    { path: "/services/tmo", element: <TalentManagement /> },
+    { path: "/services/hra", element: <HrAdvisory /> },
     { path: "/services/rss", element: <RecruitmentServices /> },
     { path: "/services/pcd", element: <PayrollCompensationDevelopment /> },
     { path: "/services/pms", element: <PerformanceManagementSystem /> },

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const ServicesDropdown = () => {
   const items = [
     { id: 1, title: "Vocational Skills Development", link: "/services/vsd" },
-    { id: 2, title: "Talent Management & Outsourcing", link: "/services/tmo" },
+    { id: 2, title: "HR Advisory", link: "/services/hra" },
     { id: 3, title: "Recruitment & Selection Services", link: "/services/rss" },
     { id: 4, title: "Payroll Compensation Development", link: "/services/pcd" },
     { id: 5, title: "Performance Management System", link: "/services/pms" },
