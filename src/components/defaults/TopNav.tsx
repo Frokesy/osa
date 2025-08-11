@@ -26,7 +26,7 @@ const TopNav = () => {
 
   return (
     <div className="bg-[#fff] shadow-lg">
-      <div className="bg-[#223D94] lg:flex hidden justify-between px-16 text-[#fff] items-center py-3">
+      <div className="bg-[#223D94] lg:flex hidden justify-between px-20 text-[#fff] items-center py-3">
         <div className="flex items-center space-x-3">
           <Phone />
           <p className="">

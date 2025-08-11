@@ -2129,3 +2129,53 @@ export const WhatsAppIcon = () => (
     </defs>
   </svg>
 );
+
+export const SearchIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_1088_7308)">
+      <path
+        d="M14.584 14.5833L18.334 18.3333"
+        stroke="#78797B"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.666 9.16669C16.666 5.02455 13.3082 1.66669 9.16601 1.66669C5.02388 1.66669 1.66602 5.02455 1.66602 9.16669C1.66602 13.3088 5.02388 16.6667 9.16601 16.6667C13.3082 16.6667 16.666 13.3088 16.666 9.16669Z"
+        stroke="#78797B"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1088_7308">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export const SendIcon = () => (
+  <svg
+    width="56"
+    height="56"
+    viewBox="0 0 56 56"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="56" height="56" rx="28" fill="#BAC3DE" />
+    <path
+      d="M39.6673 16.3334L26.834 29.1667M39.6673 16.3334L31.5007 39.6667L26.834 29.1667M39.6673 16.3334L16.334 24.5L26.834 29.1667"
+      stroke="#1F3887"
+      strokeWidth="2.33333"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
