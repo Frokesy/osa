@@ -83,7 +83,7 @@ const HrAdvisory = () => {
         </div>
       </div>
 
-      <div className="lg:mt-20 mt-10 w-[95vw] mx-auto">
+      <div className="lg:mt-20 mt-[20vh] w-[90vw] mx-auto">
         <SettingsIcon />
         <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
           HR Advisory
@@ -105,7 +105,7 @@ const HrAdvisory = () => {
             className={`${
               item.id % 2 === 0
                 ? "lg:flex-row flex-col text-[#000]"
-                : "lg:flex-row flex-col p-10"
+                : "lg:flex-row flex-col lg:p-10"
             } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
           >
             <div
