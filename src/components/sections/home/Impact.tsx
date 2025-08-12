@@ -1,14 +1,45 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { TelIcon } from "../../svgs/Icons";
+import { NavLink } from "react-router-dom";
 
 const Impact = () => {
   const items = [
-    { id: 1, title: "Trainees", desc: "We've helped train over 100 amazing professionals", value: 100, suffix: "+" },
-    { id: 2, title: "Placement rate", desc: "Achieved a 100% placement rate for potential employees", value: 100, suffix: "%" },
-    { id: 3, title: "Placement rate", desc: "Achieved a 100% placement rate for potential employees", value: 100, suffix: "%" },
-    { id: 4, title: "Training hubs", desc: "Over 40 training hubs across the Nation", value: 40, suffix: "" },
-    { id: 5, title: "Trusted Partners", desc: "We're proud to have 50+ trusted partners", value: 50, suffix: "+" },
+    {
+      id: 1,
+      title: "Trainees",
+      desc: "We've helped train over 100 amazing professionals",
+      value: 100,
+      suffix: "+",
+    },
+    {
+      id: 2,
+      title: "Placement rate",
+      desc: "Achieved a 100% placement rate for potential employees",
+      value: 100,
+      suffix: "%",
+    },
+    {
+      id: 3,
+      title: "Placement rate",
+      desc: "Achieved a 100% placement rate for potential employees",
+      value: 100,
+      suffix: "%",
+    },
+    {
+      id: 4,
+      title: "Training hubs",
+      desc: "Over 40 training hubs across the Nation",
+      value: 40,
+      suffix: "",
+    },
+    {
+      id: 5,
+      title: "Trusted Partners",
+      desc: "We're proud to have 50+ trusted partners",
+      value: 50,
+      suffix: "+",
+    },
   ];
 
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -24,7 +55,7 @@ const Impact = () => {
 
         const timer = setInterval(() => {
           start += 1;
-          setCounts(prev => {
+          setCounts((prev) => {
             const newCounts = [...prev];
             newCounts[i] = start;
             return newCounts;
@@ -54,9 +85,12 @@ const Impact = () => {
               <TelIcon />
               <span>Schedule a call</span>
             </button>
-            <button className="flex items-center space-x-4 px-4 lg:px-10 lg:py-4 py-3 font-semibold rounded-xl bg-[#E30613] hover:bg-[#c0050f] transition-colors">
+            <NavLink
+              to="/services/vsd"
+              className="flex items-center space-x-4 px-4 lg:px-10 py-4 font-semibold rounded-xl bg-[#E30613] hover:bg-[#c0050f] transition-colors"
+            >
               Explore Training
-            </button>
+            </NavLink>
           </div>
         </div>
 

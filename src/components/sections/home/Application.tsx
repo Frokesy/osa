@@ -8,6 +8,7 @@ import {
   NigerianFlag,
   SolarTechnologyIcon,
 } from "../../svgs/Icons";
+import { NavLink } from "react-router-dom";
 
 const Application = () => {
   const openRoles = [
@@ -55,7 +56,7 @@ const Application = () => {
 
   return (
     <div className="bg-[#0E1A3E] text-[#fff] mt-20">
-      <div className="flex flex-col items-center justify-center pt-10">
+      <div data-aos="fade-down" data-aos-offset="200" className="flex flex-col items-center justify-center pt-10">
         <h2 className="lg:text-[36px] text-[24px] font-semibold">Become a Trainer</h2>
         <p className="lg:text-[20px] text-center pt-2">
           Invitation for skilled professionals to join as vocational
@@ -67,6 +68,7 @@ const Application = () => {
           {openRoles.map((job) => (
             <div
               key={job.id}
+              data-aos="fade-up"
               className="border border-[#ccc] bg-[#fff] text-[#333] rounded-2xl lg:p-10 p-4 mt-6 lg:mt-0"
             >
               <div className="flex lg:flex-row flex-col items-start justify-between">
@@ -107,10 +109,10 @@ const Application = () => {
           ))}
         </div>
         <div className="flex justify-center items-center lg:mt-20 mt-10">
-          <button className="flex text-[#fff] items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-lg hover:bg-[#c0050f] transition-colors">
+          <NavLink to="/career" className="flex text-[#fff] items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-lg hover:bg-[#c0050f] transition-colors">
             <span>Apply Now</span>
             <ArrowRight color="#fff" />
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

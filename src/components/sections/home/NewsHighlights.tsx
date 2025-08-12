@@ -1,5 +1,6 @@
 import { NewspaperIcon } from "lucide-react";
 import { DiagArrow, NewsIcon } from "../../svgs/Icons";
+import { NavLink } from "react-router-dom";
 
 const NewsHighlights = () => {
   const newsData = [
@@ -86,11 +87,11 @@ const NewsHighlights = () => {
       </div>
 
       <div className="flex lg:justify-end justify-center border-t border-[#ccc] mt-14 pt-6">
-        <button className="flex items-center space-x-4 lg:text-[#fff] lg:bg-[#E30613] text-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors">
+        <NavLink to="/media/highlights" className="flex items-center space-x-4 lg:text-[#fff] lg:bg-[#E30613] text-[#E30613] px-4 py-4 font-semibold rounded-xl lg:hover:bg-[#c0050f] transition-colors">
           <span>View all posts</span>
           <div className="hidden lg:flex"><NewsIcon /></div>
             <div className="flex lg:hidden"><NewspaperIcon /></div>
-        </button>
+        </NavLink>
       </div>
     </div>
   );

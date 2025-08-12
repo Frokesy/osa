@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import type { FC } from "react";
+import { useEffect, type FC } from "react";
 import ScrollToTop from "./ScrollToTop";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -16,6 +18,10 @@ interface ContainerProps {
 const Container: FC<ContainerProps> = ({ children }) => {
   const location = useLocation();
 
+    useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);  
+
   return (
     <AnimatePresence>
       <ScrollToTop />
@@ -25,6 +31,7 @@ const Container: FC<ContainerProps> = ({ children }) => {
         initial="hidden"
         animate="visible"
         exit="exit"
+        className="overflow-x-hidden"
       >
         {children}
       </motion.div>
