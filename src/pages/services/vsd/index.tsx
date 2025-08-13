@@ -75,7 +75,11 @@ const VocationalSkillsDevelopment = () => {
     <Container>
       <TopNav />
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
-        <div className="flex items-center space-x-3">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="flex items-center space-x-3"
+        >
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
             Services
@@ -84,20 +88,36 @@ const VocationalSkillsDevelopment = () => {
 
         <div className="flex items-center justify-between lg:-mt-6 -mt-4">
           <div className="w-[70%]">
-            <h2 className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase">
+            <h2
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase"
+            >
               Vocational Skills Development
             </h2>
-            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
+            >
               Empowering individuals with practical, job-ready skills to enhance
               performance and drive career growth{" "}
             </p>
           </div>
-          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="w-[30%] lg:w-auto lg:scale-100 scale-50"
+          >
             <VSDIcon />
           </div>
         </div>
       </div>
-      <div className="bg-[url('/assets/services-one.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        className="bg-[url('/assets/services-one.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end"
+      >
         <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
           <div className="flex items-center space-x-3">
             <ServiceIcon color="#223D94" size="40" />
@@ -107,7 +127,11 @@ const VocationalSkillsDevelopment = () => {
             </h2>
           </div>
 
-          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+          <h2
+            data-aos="fade-up"
+            data-aos-duration="2500"
+            className="pt-3 lg:text-[48px] text-[24px] font-semibold"
+          >
             "Training individuals for specific job-related competencies."{" "}
           </h2>
         </div>
@@ -115,22 +139,38 @@ const VocationalSkillsDevelopment = () => {
 
       <div className="lg:mt-20 mt-[20vh] w-[95vw] mx-auto">
         <SettingsIcon />
-        <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
+        <h2
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="lg:text-[36px] text-[20px] font-semibold mt-10"
+        >
           Vocational Skills Development
         </h2>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           The world of business is done a great disfavor. It is at a loss of
           great talents and ingenuity that can birth disruptive innovations when
           vocational skills development is given much-deserved attention.{" "}
         </p>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           We are passionate about changing the prevalent narrative that
           vocational skills training is only for individuals who are not
           academically gifted but rather for anyone who may not be opportune to
           be formally educated. Science has proven that academic intelligence
           only accounts for one out of the various forms of intelligence.
         </p>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           Our courses are designed to meet global benchmarks and skilled
           manpower needs. Our faculties are dedicated to equipping young and
           vibrant youths with the much-needed vocational skills to thrive in
@@ -153,11 +193,15 @@ const VocationalSkillsDevelopment = () => {
               <img
                 src={item.image}
                 alt={item.title}
+                data-aos="fade-down"
+                data-aos-duration="1000"
                 className={` lg:h-[414px] h-[241px] w-[100%] rounded-l-2xl`}
               />
             </div>
 
             <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
               className={`${
                 item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
               } lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
