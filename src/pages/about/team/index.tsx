@@ -53,7 +53,7 @@ const Team = () => {
     <Container>
       <TopNav />
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
-        <div className="flex items-center space-x-3">
+        <div data-aos="fade-right" className="flex items-center space-x-3">
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
             About Us
@@ -62,16 +62,28 @@ const Team = () => {
 
         <div className="flex items-center justify-between lg:-mt-6 -mt-4">
           <div className="w-[70%]">
-            <h2 className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase">
+            <h2
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase"
+            >
               Our Team
             </h2>
-            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
+            >
               Meet our dedicated team of HR professionals driven by passion,
               expertise, and a shared commitment to helping your business
               thrive.
             </p>
           </div>
-          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="w-[30%] lg:w-auto lg:scale-100 scale-50"
+          >
             <TeamIcon />
           </div>
         </div>
@@ -86,9 +98,14 @@ const Team = () => {
               backgroundImage: `url(${member.image})`,
             }}
           >
-            <div className="absolute bottom-0 flex flex-col items-end pb-4 mb-6 left-2 lg:left-3 w-[95%] bg-white text-[#333] rounded-xl lg:text-[20px] p-3">
+            <div
+              data-aos="fade-up"
+              className="absolute bottom-0 flex flex-col items-end pb-4 mb-6 left-2 lg:left-3 w-[95%] bg-white text-[#333] rounded-xl lg:text-[20px] p-3"
+            >
               <div className="flex justify-between items-center w-full">
-                <h2 className="lg:text-[24px] text-[20px] font-semibold">{member.name}</h2>
+                <h2 className="lg:text-[24px] text-[20px] font-semibold">
+                  {member.name}
+                </h2>
                 <DiagArrow color="#223D94" />
               </div>
               <div className="flex justify-between items-center w-full mt-4">
