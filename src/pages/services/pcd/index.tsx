@@ -1,4 +1,3 @@
-import { SettingsIcon } from "lucide-react";
 import TopNav from "../../../components/defaults/TopNav";
 import {
   PCDIcon,
@@ -140,7 +139,7 @@ const PayrollCompensationDevelopment = () => {
       </div>
 
       <div className="lg:mt-20 mt-[23vh] w-[90vw] mx-auto">
-        <SettingsIcon />
+        <PCDIcon size="60" />
         <h2
           data-aos="fade-down"
           data-aos-duration="1000"

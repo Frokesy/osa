@@ -1,4 +1,3 @@
-import { SettingsIcon } from "lucide-react";
 import TopNav from "../../../components/defaults/TopNav";
 import {
   ODCIcon,
@@ -89,7 +88,11 @@ const OrganizationDevelopment = () => {
     <Container>
       <TopNav />
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
-        <div className="flex items-center space-x-3">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="flex items-center space-x-3"
+        >
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
             Services
@@ -98,20 +101,36 @@ const OrganizationDevelopment = () => {
 
         <div className="flex items-center justify-between lg:mt-0 ">
           <div className="w-[70%]">
-            <h2 className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase">
+            <h2
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase"
+            >
               Consulting for govt. & NGOs.
             </h2>
-            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
+            >
               Providing strategic HR and operational support to enhance public
               sector and NGO efficiency, compliance, and impact.
             </p>
           </div>
-          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="w-[30%] lg:w-auto lg:scale-100 scale-50"
+          >
             <ODCIcon />
           </div>
         </div>
       </div>
-      <div className="bg-[url('/assets/services-twelve.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="bg-[url('/assets/services-twelve.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end"
+      >
         <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
           <div className="flex items-center space-x-3">
             <ServiceIcon color="#223D94" size="40" />
@@ -121,7 +140,11 @@ const OrganizationDevelopment = () => {
             </h2>
           </div>
 
-          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+          <h2
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            className="pt-3 lg:text-[48px] text-[24px] font-semibold"
+          >
             "Enhancing structures and strategies to support growth and
             adaptability."{" "}
           </h2>
@@ -129,11 +152,19 @@ const OrganizationDevelopment = () => {
       </div>
 
       <div className="lg:mt-20 mt-[23vh] w-[90vw] mx-auto">
-        <SettingsIcon />
-        <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
+        <ODCIcon size="60" />
+        <h2
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="lg:text-[36px] text-[20px] font-semibold mt-10"
+        >
           Consulting for Govt. & NGOs
         </h2>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           Our organization development capabilities are focused on transforming
           how businesses effectively coordinate their work activities. We
           support our client&apos;s design and implement organization models and
@@ -141,7 +172,11 @@ const OrganizationDevelopment = () => {
           responsiveness. It is important that the structure effectively
           communicates to drive the organization&apos;s strategic focus.
         </p>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           We seek to assist clients to set up their organizations through a
           conceptual model that is fit for purpose and addresses the internal
           and external working arrangements to operate efficiently in an
@@ -161,6 +196,8 @@ const OrganizationDevelopment = () => {
             } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
           >
             <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
               className={`${
                 item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
               } lg:w-[70%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
