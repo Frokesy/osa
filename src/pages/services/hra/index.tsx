@@ -3,7 +3,6 @@ import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import {
   ServiceIcon,
-  SettingsIcon,
   TMOIcon,
   WhiteTick,
 } from "../../../components/svgs/Icons";
@@ -45,7 +44,11 @@ const HrAdvisory = () => {
     <Container>
       <TopNav />
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
-        <div className="flex items-center space-x-3">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="flex items-center space-x-3"
+        >
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
             Services
@@ -54,20 +57,36 @@ const HrAdvisory = () => {
 
         <div className="flex items-center justify-between lg:-mt-6 -mt-4">
           <div className="w-[70%]">
-            <h2 className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase">
+            <h2
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase"
+            >
               HR Advisory
             </h2>
-            <p className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
+            >
               Expert guidance on HR strategies, policies, and best practices to
               align people with business goals.
             </p>
           </div>
-          <div className="w-[30%] lg:w-auto lg:scale-100 scale-50">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="w-[30%] lg:w-auto lg:scale-100 scale-50"
+          >
             <TMOIcon />
           </div>
         </div>
       </div>
-      <div className="bg-[url('/assets/services-seven.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="bg-[url('/assets/services-seven.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end"
+      >
         <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
           <div className="flex items-center space-x-3">
             <ServiceIcon color="#223D94" size="40" />
@@ -77,18 +96,30 @@ const HrAdvisory = () => {
             </h2>
           </div>
 
-          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+          <h2
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="pt-3 lg:text-[48px] text-[24px] font-semibold"
+          >
             "Expert HR Guidance That Moves Your Business Forward"{" "}
           </h2>
         </div>
       </div>
 
       <div className="lg:mt-20 mt-[20vh] w-[90vw] mx-auto">
-        <SettingsIcon />
-        <h2 className="lg:text-[36px] text-[20px] font-semibold mt-10">
+        <TMOIcon size="60" />
+        <h2
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          className="lg:text-[36px] text-[20px] font-semibold mt-10"
+        >
           HR Advisory
         </h2>
-        <p className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]">
+        <p
+          data-aos="fade-down"
+          data-aos-duration="1500"
+          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+        >
           At 1StepAhead Consulting, our HR Advisory service offers strategic
           support to help organizations align their people strategy with
           business objectives. We work closely with your leadership team to
@@ -109,6 +140,8 @@ const HrAdvisory = () => {
             } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
           >
             <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
               className={`${
                 item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
               } lg:w-[70%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
