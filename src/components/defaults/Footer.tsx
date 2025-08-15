@@ -129,7 +129,7 @@ const Footer = () => {
 
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">Legal</h2>
-                <span className="text-[14px]">Terms</span>
+                <NavLink to="/terms" className="text-[14px]">Terms</NavLink>
                 <span className="text-[14px]">Privacy</span>
                 <span className="text-[14px]">Cookies</span>
               </div>

@@ -83,7 +83,7 @@ const HrNugget = () => {
   return (
     <Container>
       <div className="bg-[url('/assets/hr-nugget.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
-        <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh] lg:pt-10">
+        <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh]">
           <TopNav />
 
           <div className="flex-1 flex lg:mt-[25vh] mt-[20vh] items-center justify-center">

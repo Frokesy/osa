@@ -17,6 +17,7 @@ import HrNugget from "./pages/media/nugget";
 import HrAdvisory from "./pages/services/hra";
 import Gallery from "./pages/gallery";
 import Slug from "./pages/media/slug";
+import Terms from "./pages/legal/terms";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const App = () => {
     { path: "/career", element: <Careers /> },
     { path: "/gallery", element: <Gallery /> },
     { path: "/blog/:slug", element: <Slug /> },
+    { path: "/terms", element: <Terms /> },
     
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
