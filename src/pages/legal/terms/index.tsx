@@ -125,17 +125,15 @@ const Terms = () => {
                 8. Contact us
               </h2>
               <p className="text-[#5D5E5F] lg:text-[16px] text-[14px]">
-                If you have any questions about these Terms of Use, please
+                If you have any questions about these Privacy Policy, please
                 contact us at:
               </p>
               <div className="px-3">
                 <p className="text-[#5D5E5F] lg:text-[16px] text-[14px]">
-                  - All content, logos, graphics, and materials on this site are
-                  owned by 1STEPAHEAD or licensed to us.
+                  - Email: info@1stepaheadgroup.com
                 </p>
                 <p className="text-[#5D5E5F] lg:text-[16px] text-[14px]">
-                  - You may not reproduce, distribute, or modify any content
-                  without our written permission.
+                  - Phone: +234 708 005 5138
                 </p>
               </div>
             </div>

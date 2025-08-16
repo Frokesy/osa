@@ -18,6 +18,7 @@ import HrAdvisory from "./pages/services/hra";
 import Gallery from "./pages/gallery";
 import Slug from "./pages/media/slug";
 import Terms from "./pages/legal/terms";
+import PrivacyPolicy from "./pages/legal/privacy-policy";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -26,8 +27,7 @@ const App = () => {
     { path: "/career", element: <Careers /> },
     { path: "/gallery", element: <Gallery /> },
     { path: "/blog/:slug", element: <Slug /> },
-    { path: "/terms", element: <Terms /> },
-    
+
     // services routes
     { path: "/services/vsd", element: <VocationalSkillsDevelopment /> },
     { path: "/services/hra", element: <HrAdvisory /> },
@@ -41,10 +41,16 @@ const App = () => {
     { path: "/about/team", element: <Team /> },
     { path: "/about/core-values", element: <CoreValues /> },
     { path: "/about/history", element: <History /> },
-
+    
     // media routes
     { path: "/media/highlights", element: <NewsHighlights /> },
     { path: "/media/nugget", element: <HrNugget /> },
+
+
+    //legal routes
+    { path: "/terms", element: <Terms /> },
+    { path: "/privacy-policy", element: <PrivacyPolicy /> }
+    
   ]);
 
   return (
