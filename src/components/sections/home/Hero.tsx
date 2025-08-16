@@ -8,7 +8,7 @@ const contentVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.3, duration: 1 },
+    transition: { delay: i * 0.3, duration: 1.5 },
   }),
 };
 
@@ -43,7 +43,7 @@ const Hero = () => {
             variants={contentVariants}
             initial="hidden"
             animate="visible"
-            className="text-[18px] lg:w-[40%] text-center"
+            className="text-[18px] lg:w-[40%] text-center px-4 lg:px-0"
           >
             We provide first-class HR consulting focused on trust, excellence,
             and customer satisfaction—delivered with speed and integrity.

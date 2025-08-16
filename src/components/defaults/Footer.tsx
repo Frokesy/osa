@@ -133,9 +133,11 @@ const Footer = () => {
                   Terms
                 </NavLink>
                 <NavLink to="/privacy-policy" className="text-[14px]">
-                  Privacy
+                  Privacy Policy
                 </NavLink>
-                <span className="text-[14px]">Cookies</span>
+                <NavLink to="/cookies-policy" className="text-[14px]">
+                  Cookies Policy
+                </NavLink>
               </div>
             </div>
           </div>

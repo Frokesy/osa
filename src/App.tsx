@@ -19,6 +19,7 @@ import Gallery from "./pages/gallery";
 import Slug from "./pages/media/slug";
 import Terms from "./pages/legal/terms";
 import PrivacyPolicy from "./pages/legal/privacy-policy";
+import CookiesPolicy from "./pages/legal/cookies-policy";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -36,21 +37,20 @@ const App = () => {
     { path: "/services/rs", element: <PerformanceManagementSystem /> },
     { path: "/services/bppm", element: <BusinessProcessManual /> },
     { path: "/services/odc", element: <OrganizationDevelopment /> },
-    
+
     // about routes
     { path: "/about/team", element: <Team /> },
     { path: "/about/core-values", element: <CoreValues /> },
     { path: "/about/history", element: <History /> },
-    
+
     // media routes
     { path: "/media/highlights", element: <NewsHighlights /> },
     { path: "/media/nugget", element: <HrNugget /> },
 
-
     //legal routes
     { path: "/terms", element: <Terms /> },
-    { path: "/privacy-policy", element: <PrivacyPolicy /> }
-    
+    { path: "/privacy-policy", element: <PrivacyPolicy /> },
+    { path: "/cookies-policy", element: <CookiesPolicy /> },
   ]);
 
   return (
