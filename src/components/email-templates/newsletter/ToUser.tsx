@@ -23,19 +23,24 @@ export const NewsletterUserTemplate: FC<NewsletterUserTemplateProps> = ({
       <Head />
       <Preview>Welcome to Onestepahead Newsletter 🎉</Preview>
       <Body style={{ fontFamily: "Arial, sans-serif", color: "#333" }}>
-        <Container style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+        <Container
+          style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}
+        >
           <Heading style={{ textAlign: "center", color: "#7d6c3a" }}>
             Hi {firstname || "there"}, thanks for signing up!
           </Heading>
           <Section>
             <Text style={styles.text}>
-              You’re now subscribed to the Onestepahead newsletter. 🎉  
-              Expect updates on <b>training, hiring, funding</b>, and so much more.
+              You’re now subscribed to the Onestepahead newsletter. 🎉 Expect
+              updates on <b>training, hiring, funding</b>, and so much more.
             </Text>
 
             <Text style={styles.text}>
               While you wait, you can explore more about us{" "}
-              <Link href="https://freshbake.com" style={{ color: "#7d6c3a" }}>
+              <Link
+                href="https://1stepahead-five.vercel.app/"
+                style={{ color: "#7d6c3a" }}
+              >
                 on our website
               </Link>
             </Text>

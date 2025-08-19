@@ -37,7 +37,10 @@ export const ContactUserTemplate: FC<ContactUserTemplateProps> = ({
 
             <Text style={styles.text}>
               In the meantime, feel free to learn more about our services on{" "}
-              <a href="https://freshbake.com" style={{ color: "#223D94" }}>
+              <a
+                href="https://1stepahead-five.vercel.app/"
+                style={{ color: "#223D94" }}
+              >
                 our website
               </a>
               .
