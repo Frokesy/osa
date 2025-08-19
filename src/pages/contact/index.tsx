@@ -5,25 +5,23 @@ import TopNav from "../../components/defaults/TopNav";
 const Contact = () => {
   return (
     <Container>
-      <div className="bg-red-700">
-        <TopNav />
-      </div>
+      <TopNav />
       <div className="flex justify-between">
-        <div className="w-[45%] lg:block hidden">
+        <div className="lg:w-[45%] lg:block hidden">
           <img
             src="/assets/contact-img.png"
             alt="contact-img"
             className="h-[120vh] w-[100%]"
           />
         </div>
-        <div className="lg:w-[55%] lg:px-10 px-6 mt-20">
+        <div className="lg:w-[55%] w-[100%] lg:px-10 px-6 mt-20">
           <h2 className="lg:text-[40px] text-[24px] font-bold">
             Need HR support? <br /> We&apos;re here to help
           </h2>
           <p className="lg:text-[18px] mt-2 text-[#808080]">
             You can reach us anytime via 1stepahead@mail.com
           </p>
-          <div className="mt-14 lg:w-[80%]">
+          <div className="mt-14 lg:w-[80%] w-[100%]">
             <div className="flex justify-between">
               <div className="space-y-2 w-[45%] flex flex-col">
                 <label className="text-[14px] text-[#344054]">First name</label>
