@@ -105,6 +105,37 @@ const BlogListing: React.FC<BlogListingProps> = ({ superCategory }) => {
     );
   }
 
+  if (!paginatedPosts || paginatedPosts.length === 0) {
+    return (
+      <Container>
+        <div className="bg-[url('/assets/nh-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
+          <div className="bg-[#000000]/50 lg:min-h-screen h-[80vh]">
+            <TopNav />
+            <div className="flex-1 flex lg:mt-[25vh] mt-[20vh] items-center justify-center">
+              <div className="bg-[#fff] w-[95vw] lg:p-10 p-6 rounded-4xl mx-auto text-center">
+                <div className="flex items-center justify-center space-x-3">
+                  <ServiceIcon size="36" color="#1F3887" />
+                  <h2 className="text-[#1F3887] uppercase font-bold lg:text-[20px]">
+                    Onestep<span className="text-[#ED1C24]">ahead</span>
+                  </h2>
+                </div>
+                <h2 className="lg:text-[48px] text-[20px] text-[#223D94] font-semibold uppercase">
+                  {superCategory}
+                </h2>
+                <p className="text-[14px] pt-2 text-[#333]">
+                  The latest industry news, interviews, technologies, and
+                  resources.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="text-center py-20">No post found for this category</p>
+        <Footer />
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <div className="bg-[url('/assets/nh-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
