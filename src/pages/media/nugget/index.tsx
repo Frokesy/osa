@@ -131,6 +131,30 @@ const HrNugget: React.FC<BlogListingProps> = ({ superCategory }) => {
             </div>
           </div>
         </div>
+        <div className="flex lg:flex-row flex-col justify-between w-[90vw] mx-auto mt-10">
+          <div className="flex items-center space-x-3 border border-[#ccc] p-3 rounded-lg lg:w-[30%]">
+            <SearchIcon />
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full outline-none"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <div className="border border-[#ccc] p-3 rounded-lg lg:w-[30%] mt-6 lg:mt-0">
+            <select
+              className="w-full outline-none"
+              value={sortOrder}
+              onChange={(e) =>
+                setSortOrder(e.target.value === "oldest" ? "oldest" : "newest")
+              }
+            >
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </select>
+          </div>
+        </div>
         <p className="text-center py-20">No post found for this category</p>
         <Footer />
       </Container>
