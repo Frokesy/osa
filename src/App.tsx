@@ -44,7 +44,10 @@ const App = () => {
     { path: "/about/history", element: <History /> },
 
     // media routes
-    { path: "/media/highlights", element: <NewsHighlights /> },
+    {
+      path: "/media/highlights",
+      element: <NewsHighlights superCategory="news-highlights" />,
+    },
     { path: "/media/nugget", element: <HrNugget /> },
 
     //legal routes
