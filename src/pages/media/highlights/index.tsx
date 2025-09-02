@@ -25,8 +25,8 @@ export type Post = {
   };
 };
 
-interface BlogListingProps {
-  superCategory: "news-highlights" | "hr-nuggets";
+export interface BlogListingProps {
+  superCategory: "news-highlights" | "hr-nugget";
 }
 
 const BlogListing: React.FC<BlogListingProps> = ({ superCategory }) => {

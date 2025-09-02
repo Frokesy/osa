@@ -48,7 +48,7 @@ const App = () => {
       path: "/media/highlights",
       element: <NewsHighlights superCategory="news-highlights" />,
     },
-    { path: "/media/nugget", element: <HrNugget /> },
+    { path: "/media/nugget", element: <HrNugget superCategory="hr-nugget" /> },
 
     //legal routes
     { path: "/terms", element: <Terms /> },
