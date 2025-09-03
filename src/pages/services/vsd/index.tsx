@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
@@ -7,70 +9,38 @@ import {
   VSDIcon,
   WhiteTick,
 } from "../../../components/svgs/Icons";
+import { client } from "../../../sanity/client";
+import { servicePageQuery } from "../../../sanity/servicePage";
+
+interface ServiceItem {
+  title: string;
+  description: string;
+  features: string[];
+  bg?: string;
+  image?: { asset: { url: string } };
+}
+
+interface ServicePage {
+  title: string;
+  subText: string;
+  heroContent: string;
+  image?: { asset: { url: string } };
+  paragraphs: string[];
+  items: ServiceItem[];
+}
 
 const VocationalSkillsDevelopment = () => {
-  const skillItems = [
-    {
-      id: 1,
-      title: "Solar Technology",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/services-fourteen.png",
-      bg: "#0E1A3E",
-    },
-    {
-      id: 2,
-      title: "Fashion Designing",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/services-thirteen.png",
-      bg: "#ffffff",
-    },
-    {
-      id: 3,
-      title: "Auto-mechanics",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/services-four.png",
-      bg: "#0E1A3E",
-    },
-    {
-      id: 4,
-      title: "Carpentry",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/carpentry.png",
-      bg: "#ffffff",
-    },
-    {
-      id: 5,
-      title: "Hospitality",
-      description:
-        "Our online course are unique and targeted to specific audiences. 1Stepahead being one Step ahead is a great way to learners in the driving sit.",
-      features: [
-        "Professional tutors to attend to your needs",
-        "Flexible billing and workflows",
-      ],
-      image: "/assets/hospitality.png",
-      bg: "#0E1A3E",
-    },
-  ];
+  const { slug } = useParams<{ slug: string }>();
+  const [data, setData] = useState<ServicePage | null>(null);
+
+  useEffect(() => {
+    client.fetch(servicePageQuery, { slug: slug || "vsd" }).then((res) => {
+      setData(res);
+    });
+  }, [slug]);
+
+  if (!data) return <p className="p-10">Loading...</p>;
+
   return (
     <Container>
       <TopNav />
@@ -80,7 +50,7 @@ const VocationalSkillsDevelopment = () => {
           data-aos-duration="1000"
           className="flex items-center space-x-3"
         >
-          <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
+          <div className="h-1 rounded-full w-8 bg-[#223D94]" />
           <p className="lg:text-[20px] uppercase font-semibold text-[#223D94]">
             Services
           </p>
@@ -93,15 +63,14 @@ const VocationalSkillsDevelopment = () => {
               data-aos-duration="1000"
               className="lg:text-[48px] text-[18px] text-[#223D94] font-semibold uppercase"
             >
-              Vocational Skills Development
+              {data.title}
             </h2>
             <p
               data-aos="fade-up"
               data-aos-duration="1500"
               className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
             >
-              Empowering individuals with practical, job-ready skills to enhance
-              performance and drive career growth{" "}
+              {data.subText}
             </p>
           </div>
           <div
@@ -113,15 +82,18 @@ const VocationalSkillsDevelopment = () => {
           </div>
         </div>
       </div>
+
       <div
         data-aos="fade-up"
         data-aos-duration="2000"
-        className="bg-[url('/assets/services-one.png')] relative lg:h-[80vh] h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex items-center justify-end"
+        className="bg-center bg-cover bg-no-repeat relative lg:h-[80vh] h-[50vh] py-10 lg:px-10 flex items-center justify-end"
+        style={{
+          backgroundImage: `url(${data.image?.asset.url || "/assets/services-one.png"})`,
+        }}
       >
         <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[15vh] shadow-2xl rounded-lg lg:w-[50%]">
           <div className="flex items-center space-x-3">
             <ServiceIcon color="#223D94" size="40" />
-
             <h2 className="text-[16px] text-[#223D94] font-bold uppercase">
               Onestepahead
             </h2>
@@ -132,7 +104,7 @@ const VocationalSkillsDevelopment = () => {
             data-aos-duration="2500"
             className="pt-3 lg:text-[48px] text-[24px] font-semibold"
           >
-            "Training individuals for specific job-related competencies."{" "}
+            {data.heroContent}
           </h2>
         </div>
       </div>
@@ -144,86 +116,74 @@ const VocationalSkillsDevelopment = () => {
           data-aos-duration="1000"
           className="lg:text-[36px] text-[20px] font-semibold mt-10"
         >
-          Vocational Skills Development
+          {data.title}
         </h2>
-        <p
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
-        >
-          The world of business is done a great disfavor. It is at a loss of
-          great talents and ingenuity that can birth disruptive innovations when
-          vocational skills development is given much-deserved attention.{" "}
-        </p>
-        <p
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
-        >
-          We are passionate about changing the prevalent narrative that
-          vocational skills training is only for individuals who are not
-          academically gifted but rather for anyone who may not be opportune to
-          be formally educated. Science has proven that academic intelligence
-          only accounts for one out of the various forms of intelligence.
-        </p>
-        <p
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
-        >
-          Our courses are designed to meet global benchmarks and skilled
-          manpower needs. Our faculties are dedicated to equipping young and
-          vibrant youths with the much-needed vocational skills to thrive in
-          developed and developing economies such as ours.
-        </p>
+        {data.paragraphs?.map((p, i) => (
+          <p
+            key={i}
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="lg:text-[20px] text-[14px] pt-6 text-[#1D2939]"
+          >
+            {p}
+          </p>
+        ))}
       </div>
 
       <div className="w-[90vw] mx-auto mt-20 text-[#fff] space-y-10">
-        {skillItems.map((item) => (
-          <div
-            key={item.id}
-            style={{ backgroundColor: item.bg }}
-            className={`${
-              item.id % 2 === 0
-                ? "lg:flex-row-reverse flex-col text-[#000]"
-                : "lg:flex-row flex-col"
-            } flex justify-between items-center rounded-2xl lg:flex-row flex-col`}
-          >
-            <div className="lg:w-[55%]">
-              <img
-                src={item.image}
-                alt={item.title}
-                data-aos="fade-down"
-                data-aos-duration="1000"
-                className={` lg:h-[414px] h-[241px] w-[100%] rounded-l-2xl`}
-              />
-            </div>
+        {data.items?.map((item, i) => {
+          const reversed = i % 2 === 1;
+          const bg = item.bg || "#ffffff";
+          const isLight = bg.toLowerCase() === "#ffffff";
 
+          return (
             <div
+              key={i}
+              style={{ backgroundColor: bg }}
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="800"
               className={`${
-                item.id % 2 === 0 ? "px-3" : "px-6 lg:px-0"
-              } lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
+                reversed
+                  ? "lg:flex-row-reverse flex-col text-[#000]"
+                  : "lg:flex-row flex-col"
+              } flex justify-between items-center rounded-2xl`}
             >
-              <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
-                {item.title}
-              </h2>
-              <p className="lg:text-[16px] text-[14px]">{item.description}</p>
+              <div className="lg:w-[55%]">
+                {item.image && (
+                  <img
+                    src={item.image.asset.url}
+                    alt={item.title}
+                    data-aos="fade-down"
+                    data-aos-duration="1000"
+                    className={`lg:h-[414px] h-[241px] w-full object-cover ${
+                      reversed ? "rounded-r-2xl" : "rounded-l-2xl"
+                    }`}
+                  />
+                )}
+              </div>
 
-              <div className="space-y-2">
-                {item.features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <WhiteTick
-                      color={item.bg === "#ffffff" ? "#000000" : "#ffffff"}
-                    />
-                    <p className="lg:text-[16px] text-[14px]">{feature}</p>
-                  </div>
-                ))}
+              <div
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                className={`${reversed ? "px-3" : "px-6 lg:px-0"} lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10`}
+              >
+                <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
+                  {item.title}
+                </h2>
+                <p className="lg:text-[16px] text-[14px]">{item.description}</p>
+
+                <div className="space-y-2">
+                  {item.features?.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-2">
+                      <WhiteTick color={isLight ? "#000000" : "#ffffff"} />
+                      <p className="lg:text-[16px] text-[14px]">{feature}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <Footer />
