@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import Container from "../../components/defaults/Container";
 import Footer from "../../components/defaults/Footer";

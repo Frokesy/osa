@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import TopNav from "../../components/defaults/TopNav";
 import {
   BriefcaseIcon,
@@ -10,91 +10,80 @@ import {
 } from "../../components/svgs/Icons";
 import Footer from "../../components/defaults/Footer";
 import Container from "../../components/defaults/Container";
+import { client } from "../../sanity/client";
+import { motion } from "framer-motion";
+
+type Role = {
+  title: string;
+  description: string;
+  location: string;
+  type: string;
+  salary: string;
+  postedDate: string;
+};
+
+type CareerCategory = {
+  _id: string;
+  category: string;
+  catDesc: string;
+  roles: Role[];
+};
 
 const Careers = () => {
-  const openRoles = [
-    {
-      id: 1,
-      category: "Design",
-      catDesc: "Open positions in our design team",
-      roles: [
-        {
-          id: 1,
-          title: "Product Designer",
-          description:
-            "We are looking for a mid-level product designer to join our team.",
-          location: "Remote",
-          type: "Full-time",
-          salary: "80k - 100k",
-          postedDate: "17th January, 2025",
-        },
-        {
-          id: 2,
-          title: "UX Designer",
-          description:
-            "We are looking for a mid-level UX designer to join our team.",
-          location: "Melbourne, Australia",
-          type: "Full-time",
-          salary: "80k - 100k",
-          postedDate: "17th January, 2025",
-        },
-      ],
-    },
-    {
-      id: 2,
-      category: "Software Development",
-      catDesc: "Open positions in our software team",
-      roles: [
-        {
-          id: 1,
-          title: "Engineering Manager",
-          description:
-            "We are looking for an experienced engineering manager to join our team.",
-          location: "Remote",
-          type: "Full-time",
-          salary: "80k - 100k",
-          postedDate: "18th January, 2025",
-        },
-        {
-          id: 2,
-          title: "Frontend Developer",
-          description:
-            "We are looking for an experienced frontend developer to join our team.",
-          location: "Lagos, Nigeria",
-          type: "Full-time",
-          salary: "82k - 150k",
-          postedDate: "20th January, 2025",
-        },
-        {
-          id: 3,
-          title: "Backend Developer",
-          description:
-            "We are looking for an experienced backend developer to join our team.",
-          location: "Oyo, Nigeria",
-          type: "Full-time",
-          salary: "42k - 50k",
-          postedDate: "20th January, 2025",
-        },
-      ],
-    },
-    {
-      id: 3,
-      category: "Customer Success",
-      catDesc: "Open positions in our CX team",
-      roles: [
-        {
-          id: 1,
-          title: "Customer Success Manager",
-          description:
-            "We are looking for a mid-level product designer to join our team.",
-          location: "Remote",
-          type: "Full-time",
-          salary: "80k - 100k",
-          postedDate: "17th January, 2025",
-        },
-      ],
-    },
-  ];
+  const [openRoles, setOpenRoles] = useState<CareerCategory[]>([]);
+  const [filteredRoles, setFilteredRoles] = useState<CareerCategory[]>([]);
+  const [locationFilter, setLocationFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await client.fetch(`
+        *[_type == "careerCategory"]{
+          _id,
+          category,
+          catDesc,
+          roles[]{
+            title,
+            description,
+            location,
+            type,
+            salary,
+            postedDate
+          }
+        }
+      `);
+      setOpenRoles(data);
+      setFilteredRoles(data);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    let filtered = [...openRoles];
+
+    if (categoryFilter !== "all") {
+      filtered = filtered.filter(
+        (cat) =>
+          cat.category.toLowerCase().replace(/\s+/g, "-") === categoryFilter
+      );
+    }
+
+    if (locationFilter !== "all") {
+      filtered = filtered
+        .map((cat) => ({
+          ...cat,
+          roles: cat.roles.filter((role) =>
+            locationFilter === "remote"
+              ? role.location.toLowerCase().includes("remote")
+              : !role.location.toLowerCase().includes("remote")
+          ),
+        }))
+        .filter((cat) => cat.roles.length > 0);
+    }
+
+    setFilteredRoles(filtered);
+  }, [locationFilter, categoryFilter, openRoles]);
+
   return (
     <Container>
       <div className="bg-[url('/assets/career-hero.png')] lg:min-h-screen h-[80vh] bg-center bg-cover bg-no-repeat">
@@ -146,7 +135,12 @@ const Careers = () => {
             </label>
             <div className="border border-[#D0D5DD] rounded-lg py-4 px-3 w-full flex items-center space-x-2">
               <LocationIcon />
-              <select id="location" className="w-[100%]">
+              <select
+                id="location"
+                value={locationFilter}
+                onChange={(e) => setLocationFilter(e.target.value)}
+                className="w-[100%]"
+              >
                 <option value="all">All Locations</option>
                 <option value="remote">Remote</option>
                 <option value="onsite">Onsite</option>
@@ -157,13 +151,20 @@ const Careers = () => {
           <div className="lg:hidden w-[100%] flex items-center space-x-3 mt-4">
             <div className="border border-[#D0D5DD] rounded-lg py-4 px-3 w-full flex items-center space-x-2">
               <BriefcaseIcon />
-              <select id="location" className="w-[100%]">
+              <select
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+                className="w-[100%]"
+              >
                 <option value="all">View all openings</option>
-                <option value="design">Design</option>
-                <option value="software">Software Engineering</option>
-                <option value="customer-success">Customer Success</option>
-                <option value="sales">Sales</option>
-                <option value="marketing">Marketing</option>
+                {openRoles.map((cat) => (
+                  <option
+                    key={cat._id}
+                    value={cat.category.toLowerCase().replace(/\s+/g, "-")}
+                  >
+                    {cat.category}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -171,91 +172,108 @@ const Careers = () => {
       </div>
 
       <div className="w-[80vw] mx-auto lg:flex hidden text-[#667085] justify-center space-x-6 mt-20">
-        <button className="bg-[#E9ECF4] py-3 px-6 text-[#182B69] rounded-lg">
+        <button
+          className={`py-3 px-6 rounded-lg ${
+            categoryFilter === "all"
+              ? "bg-[#E9ECF4] text-[#182B69] font-semibold"
+              : ""
+          } cursor-pointer transition-all ease-in-out duration-300`}
+          onClick={() => setCategoryFilter("all")}
+        >
           View all
         </button>
-        <button className="">Design</button>
-        <button className="">Software Engineering</button>
-        <button className="">Customer Success</button>
-        <button className="">Sales</button>
-        <button className="">Marketing</button>
+        {openRoles.map((cat) => (
+          <button
+            key={cat._id}
+            className={`py-3 px-6 rounded-lg ${
+              categoryFilter === cat.category.toLowerCase().replace(/\s+/g, "-")
+                ? "bg-[#E9ECF4] text-[#182B69] font-semibold"
+                : ""
+            } cursor-pointer transition-all ease-in-out duration-300`}
+            onClick={() =>
+              setCategoryFilter(cat.category.toLowerCase().replace(/\s+/g, "-"))
+            }
+          >
+            {cat.category}
+          </button>
+        ))}
       </div>
 
       <div className="mt-20 space-y-6 w-[90vw] mx-auto">
-        {openRoles.map((role) => (
-          <div
-            key={role.id}
-            className="lg:border-y-2 border-[#ccc] py-10 flex lg:flex-row flex-col justify-between"
-          >
-            <div className="lg:w-[35%]">
-              <h2 className="text-[20px] font-semibold">{role.category}</h2>
-              <p className="text-[#667085]">{role.catDesc}</p>
-            </div>
+        {filteredRoles.length === 0 ? (
+          <p className="text-center text-gray-500">No roles found.</p>
+        ) : (
+          filteredRoles.map((roleCategory) => (
+            <motion.div
+              key={roleCategory._id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="lg:border-y-2 border-[#ccc] py-10 flex lg:flex-row flex-col justify-between"
+            >
+              <div className="lg:w-[35%]">
+                <h2 className="text-[20px] font-semibold">
+                  {roleCategory.category}
+                </h2>
+                <p className="text-[#667085]">{roleCategory.catDesc}</p>
+              </div>
 
-            <div className="lg:w-[60%] space-y-6">
-              {role.roles.map((job) => (
-                <div
-                  key={job.id}
-                  className="border border-[#ccc] rounded-2xl lg:p-10 p-4 mt-6 lg:mt-0"
-                >
-                  <div className="flex lg:flex-row flex-col items-start justify-between">
-                    <div className="lg:space-y-1 space-y-3 flex flex-col items-start">
-                      <h2 className="text-[18px] font-semibold">{job.title}</h2>
-                      <div className="flex lg:hidden items-center space-x-2 lg:mt-0 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
+              <div className="lg:w-[60%] space-y-6">
+                {roleCategory.roles?.map((job, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-[#ccc] rounded-2xl lg:p-10 p-4 mt-6 lg:mt-0"
+                  >
+                    <div className="flex lg:flex-row flex-col items-start justify-between">
+                      <div className="lg:space-y-1 space-y-3 flex flex-col items-start">
+                        <h2 className="text-[18px] font-semibold">
+                          {job.title}
+                        </h2>
+                        <div className="flex lg:hidden items-center space-x-2 lg:mt-0 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
+                          <LocationIcon />
+                          <p className="text-[#667085] text-[14px]">
+                            {job.location}
+                          </p>
+                        </div>
+                        <p className="text-gray-500">{job.description}</p>
+                      </div>
+                      <div className="lg:flex hidden items-center space-x-2 mt-3 lg:mt-0 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
                         <LocationIcon />
-                        <p className="text-[#667085] text-[14px]">{job.location}</p>
+                        <p className="text-[#667085]">{job.location}</p>
                       </div>
-                      <p className="text-gray-500">{job.description}</p>
                     </div>
-                    <div className="lg:flex hidden items-center space-x-2 mt-3 lg:mt-0 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
-                      <LocationIcon />
-                      <p className="text-[#667085]">{job.location}</p>
+
+                    <div className="flex lg:flex-row flex-col justify-between lg:items-center space-y-3 lg:space-y-0 mt-10">
+                      <div className="flex items-center space-x-10">
+                        <div className="flex items-center space-x-3">
+                          <ClockIcon />
+                          <p className="text-[#78797B]">{job.type}</p>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <NairaIcon />
+                          <p className="text-[#78797B]">{job.salary}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <MiniCalendarIcon />
+                        <p className="text-[#78797B]">
+                          {new Date(job.postedDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              day: "numeric",
+                              month: "long",
+                              year: "numeric",
+                            }
+                          )}
+                        </p>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="flex lg:flex-row flex-col justify-between lg:items-center space-y-3 lg:space-y-0 mt-10">
-                    <div className="flex items-center space-x-10">
-                      <div className="flex items-center space-x-3">
-                        <ClockIcon />
-                        <p className="text-[#78797B]">{job.type}</p>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <NairaIcon />
-                        <p className="text-[#78797B]">{job.salary}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <MiniCalendarIcon />
-                      <p className="text-[#78797B]">{job.postedDate}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        <div className="lg:flex hidden justify-between items-center mt-10 w-[100%]">
-          <button className="bg-[#E9ECF4] flex items-center font-semibold space-x-3 py-3 px-6 text-[#182B69] rounded-lg">
-            <ArrowLeft size={18} />
-            <span>Previous</span>
-          </button>
-          <div className="flex items-center space-x-6">
-            <button className="bg-[#E9ECF4] py-2 px-3 text-[#182B69] rounded-lg">
-              1
-            </button>
-            <button className=" text-[#182B69] rounded-lg">2</button>
-            <button className=" text-[#182B69] rounded-lg">3</button>
-            <button className=" text-[#182B69] rounded-lg">....</button>
-            <button className=" text-[#182B69] rounded-lg">8</button>
-            <button className=" text-[#182B69] rounded-lg">9</button>
-            <button className=" text-[#182B69] rounded-lg">10</button>
-          </div>
-          <button className="bg-[#E9ECF4] flex items-center font-semibold space-x-3 py-3 px-6 text-[#182B69] rounded-lg">
-            <span>Next</span>
-            <ArrowRight size={18} />
-          </button>
-        </div>
+                ))}
+              </div>
+            </motion.div>
+          ))
+        )}
       </div>
 
       <div className="lg:mt-30 mt-10 w-[90vw] mx-auto">
