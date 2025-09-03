@@ -4,6 +4,7 @@ import Plunk from "@plunk/node";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import { NewsletterAdminTemplate } from "../../email-templates/newsletter/ToAdmin";
 import { NewsletterUserTemplate } from "../../email-templates/newsletter/ToUser";
+import { LoadingIcon } from "../../svgs/Icons";
 
 const NewsLetter = () => {
   const [name, setName] = useState("");
@@ -19,7 +20,7 @@ const NewsLetter = () => {
         position: "top-center",
         autoClose: 2000,
         transition: Slide,
-        hideProgressBar: true
+        hideProgressBar: true,
       });
       return;
     }
@@ -49,7 +50,7 @@ const NewsLetter = () => {
         position: "top-center",
         autoClose: 2000,
         transition: Slide,
-        hideProgressBar: true
+        hideProgressBar: true,
       });
 
       setName("");
@@ -60,7 +61,7 @@ const NewsLetter = () => {
         position: "top-center",
         autoClose: 2000,
         transition: Slide,
-        hideProgressBar: true
+        hideProgressBar: true,
       });
     } finally {
       setLoading(false);
@@ -98,30 +99,11 @@ const NewsLetter = () => {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="bg-[#E30613] text-white px-6 py-3 rounded-lg hover:bg-[#c0050f] font-semibold lg:w-[15%] w-[90%] lg:mt-0 mt-4 transition-colors disabled:opacity-50 flex items-center justify-center"
+          className="bg-[#E30613] text-white px-6 py-3 space-x-3 rounded-lg hover:bg-[#c0050f] font-semibold lg:w-[15%] w-[90%] lg:mt-0 mt-4 transition-colors disabled:opacity-50 flex items-center justify-center"
         >
           {loading ? (
             <>
-              <svg
-                className="animate-spin h-5 w-5 text-white mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                ></path>
-              </svg>
+              <LoadingIcon />
               Subscribing...
             </>
           ) : (
