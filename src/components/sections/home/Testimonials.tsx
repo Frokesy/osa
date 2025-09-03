@@ -8,26 +8,16 @@ import {
   LessThanIcon,
 } from "../../svgs/Icons";
 
-const testimonials = [
-  {
-    text: `Working with this HR firm as a vocational trainer has been a rewarding experience. They provided the structure, support, and resources needed to teach effectively. I've seen real growth in my trainees, and that's the most fulfilling part.`,
-    name: "Aisha Bello",
-    role: "Fashion Design Trainer",
-    img: "/assets/aisha.png",
-  },
-  {
-    text: `The team's professionalism and dedication are unmatched. They helped us find the right talent quickly and efficiently, saving us both time and resources.`,
-    name: "John Smith",
-    role: "HR Manager",
-    img: "/assets/aisha.png",
-  },
-  {
-    text: `I appreciate their commitment to understanding our unique needs. Their recruitment process is thorough and tailored, which made all the difference.`,
-    name: "Mary Johnson",
-    role: "Operations Lead",
-    img: "/assets/aisha.png",
-  },
-];
+type Testimonial = {
+  text: string;
+  name: string;
+  role: string;
+  img: string;
+};
+
+type TestimonialsProps = {
+  testimonials: Testimonial[];
+};
 
 const fadeVariants = {
   enter: { opacity: 0 },
@@ -35,27 +25,23 @@ const fadeVariants = {
   exit: { opacity: 0, transition: { duration: 1.2 } },
 };
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }: TestimonialsProps) => {
   const [index, setIndex] = useState(0);
-  const timerRef = useRef<number | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const startTimer = () => {
-    if (timerRef.current !== null) {
-      clearInterval(timerRef.current);
-    }
+    if (timerRef.current !== null) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
   };
 
   useEffect(() => {
-    startTimer();
+    if (testimonials.length > 0) startTimer();
     return () => {
-      if (timerRef.current !== null) {
-        clearInterval(timerRef.current);
-      }
+      if (timerRef.current !== null) clearInterval(timerRef.current);
     };
-  }, []);
+  }, [testimonials]);
 
   const nextTestimonial = () => {
     if (index < testimonials.length - 1) {
@@ -70,6 +56,8 @@ const Testimonials = () => {
       startTimer();
     }
   };
+
+  if (testimonials.length === 0) return null;
 
   return (
     <div className="w-[85vw] mx-auto mt-20">
@@ -100,7 +88,7 @@ const Testimonials = () => {
                 <img
                   src={testimonials[index].img}
                   alt={testimonials[index].name}
-                  className="w-[80px] h-[80px] rounded-full"
+                  className="w-[80px] h-[80px] rounded-full object-cover"
                 />
                 <h3 className="text-[#000] text-[18px] font-semibold">
                   {testimonials[index].name}

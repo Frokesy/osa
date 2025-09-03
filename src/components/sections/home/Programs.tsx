@@ -8,8 +8,28 @@ import {
   SolarTechnologyIcon,
 } from "../../svgs/Icons";
 import { NavLink } from "react-router-dom";
+import type { JSX } from "react";
 
-const Programs = () => {
+const iconMap: Record<string, JSX.Element> = {
+  fashion: <FashionDesignIcon />,
+  carpentry: <CarpentryIcon />,
+  solar: <SolarTechnologyIcon />,
+  hospitality: <HospitalityIcon />,
+  automotive: <AutomotiveIcon />,
+  creative: <CreativeArtsIcon />,
+};
+
+interface Program {
+  icon: string;
+  title: string;
+  subtext: string;
+}
+
+interface ProgramsProps {
+  items: Program[];
+}
+
+const Programs: React.FC<ProgramsProps> = ({ items }) => {
   return (
     <div className="lg:mt-30 mt-20">
       <div
@@ -26,66 +46,21 @@ const Programs = () => {
       </div>
 
       <div className="mt-10 flex flex-wrap justify-center gap-10 w-[90vw] mx-auto">
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <FashionDesignIcon />
-          <h2 className="text-[18px] font-semibold">Fashion Design</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Learn cutting-edge fashion design and garment construction
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <CarpentryIcon />
-          <h2 className="text-[18px] font-semibold">Carpentry</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Master woodworking and construction techniques
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <SolarTechnologyIcon />
-          <h2 className="text-[18px] font-semibold">Solar Technology</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Renewable energy installation and maintenance
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <HospitalityIcon />
-          <h2 className="text-[18px] font-semibold">Hospitality</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Customer service and Hospitality management
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <AutomotiveIcon />
-          <h2 className="text-[18px] font-semibold">Automotive</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Vehicle maintenance and repair expertise
-          </p>
-        </div>
-        <div
-          data-aos="fade-up"
-          className="flex flex-col items-center space-y-3 text-center"
-        >
-          <CreativeArtsIcon />
-          <h2 className="text-[18px] font-semibold">Creative Arts</h2>
-          <p className="text-[14px] lg:w-[60%] text-[#71717A]">
-            Graphics design and multimedia production.
-          </p>
-        </div>
+        {items.map((program, idx) => (
+          <div
+            key={idx}
+            data-aos="fade-up"
+            className="flex flex-col items-center space-y-3 text-center"
+          >
+            {iconMap[program.icon] ?? (
+              <div className="w-12 h-12 rounded-full bg-gray-200" />
+            )}
+            <h2 className="text-[18px] font-semibold">{program.title}</h2>
+            <p className="text-[14px] lg:w-[60%] text-[#71717A]">
+              {program.subtext}
+            </p>
+          </div>
+        ))}
       </div>
 
       <div className="flex justify-center items-center mt-20">
