@@ -8,6 +8,7 @@ import NewsletterCard from "../../../components/sections/cards/NewsletterCard";
 import PostCard from "../../../components/sections/cards/PostCard";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { BlogListingProps } from "../highlights";
+import Fallback from "../../../components/defaults/Fallback";
 
 export type Post = {
   _id: string;
@@ -96,7 +97,7 @@ const HrNugget: React.FC<BlogListingProps> = ({ superCategory }) => {
     return (
       <Container>
         <TopNav />
-        <p className="text-center py-20">Loading posts...</p>
+        <Fallback />
         <Footer />
       </Container>
     );

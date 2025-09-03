@@ -9,6 +9,7 @@ import {
 } from "../../../components/svgs/Icons";
 import { client } from "../../../sanity/client";
 import { coreValuesPageQuery } from "../../../sanity/coreValues";
+import Fallback from "../../../components/defaults/Fallback";
 
 interface CoreValuesData {
   hero: {
@@ -38,7 +39,7 @@ const CoreValues = () => {
     });
   }, []);
 
-  if (loading) return <p className="text-center py-20">Loading...</p>;
+  if (loading) return <Fallback />;
   if (!data) return <p className="text-center py-20">No content found.</p>;
 
   return (

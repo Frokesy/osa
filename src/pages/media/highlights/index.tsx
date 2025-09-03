@@ -7,6 +7,7 @@ import { getPostsBySuperCategory } from "../../../sanity/getPostsBySuperCategory
 import NewsletterCard from "../../../components/sections/cards/NewsletterCard";
 import PostCard from "../../../components/sections/cards/PostCard";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Fallback from "../../../components/defaults/Fallback";
 
 export type Post = {
   _id: string;
@@ -99,7 +100,7 @@ const BlogListing: React.FC<BlogListingProps> = ({ superCategory }) => {
     return (
       <Container>
         <TopNav />
-        <p className="text-center py-20">Loading posts...</p>
+        <Fallback />
         <Footer />
       </Container>
     );

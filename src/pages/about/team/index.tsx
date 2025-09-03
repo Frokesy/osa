@@ -6,6 +6,7 @@ import { DiagArrow, TeamIcon } from "../../../components/svgs/Icons";
 import { LinkedIn, Twitter, Website } from "../../../components/svgs/Logos";
 import { teamPageQuery } from "../../../sanity/team";
 import { client } from "../../../sanity/client";
+import Fallback from "../../../components/defaults/Fallback";
 
 interface TeamMember {
   name: string;
@@ -29,7 +30,7 @@ const Team = () => {
     });
   }, []);
 
-  if (loading) return <p className="text-center py-20">Loading...</p>;
+  if (loading) return <Fallback />;
   if (!data) return <p className="text-center py-20">No team found.</p>;
 
   return (

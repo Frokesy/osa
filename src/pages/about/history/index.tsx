@@ -6,6 +6,7 @@ import { HistoryIcon, ServiceIcon } from "../../../components/svgs/Icons";
 import Typewriter from "typewriter-effect";
 import { historyPageQuery } from "../../../sanity/histroyPage";
 import { client } from "../../../sanity/client";
+import Fallback from "../../../components/defaults/Fallback";
 
 interface HistoryData {
   hero: {
@@ -33,7 +34,7 @@ const History = () => {
     });
   }, []);
 
-  if (loading) return <p className="text-center py-20">Loading...</p>;
+  if (loading) return <Fallback />;
   if (!data) return <p className="text-center py-20">No content found.</p>;
 
   return (

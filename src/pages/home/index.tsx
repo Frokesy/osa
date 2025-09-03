@@ -14,6 +14,7 @@ import Services from "../../components/sections/home/Services";
 import Testimonials from "../../components/sections/home/Testimonials";
 import TrustedClients from "../../components/sections/home/TrustedClients";
 import { client } from "../../sanity/client";
+import Fallback from "../../components/defaults/Fallback";
 
 const query = `*[_type == "homepage"][0]{
   hero {
@@ -68,7 +69,7 @@ const Home = () => {
     client.fetch(query).then(setData);
   }, []);
 
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <Fallback />;
   return (
     <Container>
       <Hero heroImg={data.hero.heroImg} subtext={data.hero.subtext} />

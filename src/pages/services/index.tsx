@@ -15,6 +15,7 @@ import {
 } from "../../components/svgs/Icons";
 import { servicePageQuery } from "../../sanity/servicePage";
 import { client } from "../../sanity/client";
+import Fallback from "../../components/defaults/Fallback";
 
 interface ServiceItem {
   title: string;
@@ -52,7 +53,7 @@ const ServicePage = () => {
     client.fetch(servicePageQuery, { slug }).then((res) => setData(res));
   }, [slug]);
 
-  if (!data) return <p className="p-10">Loading...</p>;
+  if (!data) return <Fallback />;
 
   return (
     <Container>
