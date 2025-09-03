@@ -1,57 +1,41 @@
+import { useEffect, useState } from "react";
 import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import { DiagArrow, TeamIcon } from "../../../components/svgs/Icons";
 import { LinkedIn, Twitter, Website } from "../../../components/svgs/Logos";
+import { teamPageQuery } from "../../../sanity/team";
+import { client } from "../../../sanity/client";
+
+interface TeamMember {
+  name: string;
+  role: string;
+  bgColor?: string;
+  image?: { asset: { url: string } };
+}
+
+interface TeamPageData {
+  members: TeamMember[];
+}
 
 const Team = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "David Eze",
-      role: "Product Manager",
-      image: "/assets/eze.png",
-      bgColor: "#1F3887",
-    },
-    {
-      id: 2,
-      name: "Rich Wilson",
-      role: "Product Manager",
-      image: "/assets/wilson.png",
-      bgColor: "#F6F7F7",
-    },
-    {
-      id: 3,
-      name: "Rebecca Tuma",
-      role: "Product Manager",
-      image: "/assets/tuma.png",
-      bgColor: "#F6F7F7",
-    },
-    {
-      id: 4,
-      name: "Adebisi Iwalewa",
-      role: "Product Manager",
-      image: "/assets/adebisi.png",
-      bgColor: "#D81921",
-    },
-    {
-      id: 5,
-      name: "Adebayo Abiodun",
-      role: "Product Manager",
-      image: "/assets/abiodun.png",
-      bgColor: "#1F3887",
-    },
-    {
-      id: 6,
-      name: "Elizabeth Ogunleye",
-      role: "Product Manager",
-      image: "/assets/lizzy.png",
-      bgColor: "#F6F7F7",
-    },
-  ];
+  const [data, setData] = useState<TeamPageData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    client.fetch(teamPageQuery).then((res) => {
+      setData(res);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <p className="text-center py-20">Loading...</p>;
+  if (!data) return <p className="text-center py-20">No team found.</p>;
+
   return (
     <Container>
       <TopNav />
+      {/* Header */}
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
         <div data-aos="fade-right" className="flex items-center space-x-3">
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
@@ -64,14 +48,12 @@ const Team = () => {
           <div className="w-[70%]">
             <h2
               data-aos="fade-up"
-              data-aos-duration="1000"
               className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase"
             >
               Our Team
             </h2>
             <p
               data-aos="fade-up"
-              data-aos-duration="1000"
               className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
             >
               Meet our dedicated team of HR professionals driven by passion,
@@ -81,7 +63,6 @@ const Team = () => {
           </div>
           <div
             data-aos="fade-left"
-            data-aos-duration="1000"
             className="w-[30%] lg:w-auto lg:scale-100 scale-50"
           >
             <TeamIcon />
@@ -89,13 +70,15 @@ const Team = () => {
         </div>
       </div>
 
+      {/* Team Grid */}
       <div className="lg:mt-20 mt-10 grid lg:grid-cols-3 grid-cols-1 w-[90vw] lg:gap-20 gap-6 mx-auto">
-        {teamMembers.map((member) => (
+        {data.members.map((member, i) => (
           <div
-            key={member.id}
+            key={i}
             className="relative lg:h-[480px] lg:w-[390px] w-[90vw] h-[360px] bg-center rounded-xl bg-cover overflow-hidden"
             style={{
-              backgroundImage: `url(${member.image})`,
+              backgroundImage: `url(${member.image?.asset?.url || "/assets/default-team.png"})`,
+              backgroundColor: member.bgColor || "#F6F7F7",
             }}
           >
             <div

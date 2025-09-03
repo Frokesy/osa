@@ -1,13 +1,45 @@
+import { useEffect, useState } from "react";
 import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
 import { HistoryIcon, ServiceIcon } from "../../../components/svgs/Icons";
 import Typewriter from "typewriter-effect";
+import { historyPageQuery } from "../../../sanity/histroyPage";
+import { client } from "../../../sanity/client";
+
+interface HistoryData {
+  hero: {
+    title: string;
+    subtitle: string;
+    backgroundImage?: { asset: { url: string } };
+  };
+  historyText: string[];
+  whatWeDo: {
+    title: string;
+    description: string;
+    bullets: string[];
+    image?: { asset: { url: string } };
+  };
+}
 
 const History = () => {
+  const [data, setData] = useState<HistoryData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    client.fetch(historyPageQuery).then((res) => {
+      setData(res);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <p className="text-center py-20">Loading...</p>;
+  if (!data) return <p className="text-center py-20">No content found.</p>;
+
   return (
     <Container>
       <TopNav />
+
       <div className="w-[90vw] rounded-4xl lg:mt-14 mt-10 lg:mb-10 mx-auto">
         <div data-aos="fade-right" className="flex items-center space-x-3">
           <div className="h-1 rounded-full w-8 bg-[#223D94]"></div>
@@ -20,17 +52,15 @@ const History = () => {
           <div className="w-[70%]">
             <h2
               data-aos="fade-up"
-              data-aos-duration="1000"
               className="lg:text-[48px] text-[24px] text-[#223D94] font-semibold uppercase"
             >
-              Who we are
+              {data.hero.title}
             </h2>
             <p
               data-aos="fade-up"
-              data-aos-duration="1500"
               className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
             >
-              Our company&apos;s history and the value we provide.
+              {data.hero.subtitle}
             </p>
           </div>
           <div
@@ -41,117 +71,67 @@ const History = () => {
           </div>
         </div>
       </div>
+
       <div
         data-aos="fade-up"
-        className="bg-[url('/assets/about-hero.png')] relative lg:min-h-[80vh] min-h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex justify-end"
+        className="relative lg:min-h-[80vh] min-h-[50vh] bg-center bg-cover bg-no-repeat py-10 lg:px-10 flex justify-end"
+        style={{
+          backgroundImage: `url(${data.hero.backgroundImage?.asset?.url || "/assets/about-hero.png"})`,
+        }}
       >
         <div className="space-y-4 bg-[#fff] lg:p-10 p-6 lg:relative absolute lg:bottom-0 mx-4 lg:mx-0 -bottom-[60vh] shadow-2xl rounded-lg lg:w-[50%]">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="2500"
-            className="flex items-center space-x-3"
-          >
+          <div className="flex items-center space-x-3">
             <ServiceIcon color="#223D94" size="40" />
-
             <h2 className="text-[16px] text-[#223D94] font-bold">
               OUR COMPANY&apos;S HISTORY
             </h2>
           </div>
 
-          <p
-            data-aos="fade-up"
-            data-aos-duration="2500"
-            className="lg:text-[16px] text-[#333333]"
-          >
-            Founded in 2019 by Mr. John Doe, 1StepAhead Consulting began with a
-            clear mission: to empower businesses with strategic, reliable, and
-            people-focused HR solutions. What started as a small advisory firm
-            has grown into a trusted HR consulting partner for over 120
-            businesses across various industries.
-          </p>
-
-          <p
-            data-aos="fade-up"
-            data-aos-duration="2500"
-            className="lg:text-[16px] text-[#333333]"
-          >
-            With a commitment to excellence, speed, and integrity, the company
-            has helped organizations streamline operations, enhance talent
-            acquisition, ensure compliance, and boost overall workforce
-            efficiency.
-          </p>
-
-          <p
-            data-aos="fade-up"
-            data-aos-duration="2500"
-            className="lg:text-[16px] text-[#333333]"
-          >
-            Over the years, 1StepAhead Consulting has expanded its services,
-            team, and client base, earning a strong reputation for delivering
-            results-driven solutions tailored to each client&apos;s goals.
-            Today, it stands as a go-to resource for companies looking to align
-            their people strategy with business success.
-          </p>
+          {data.historyText.map((para, i) => (
+            <p key={i} className="lg:text-[16px] text-[#333333]">
+              {para}
+            </p>
+          ))}
         </div>
       </div>
 
       <div className="flex justify-between lg:flex-row flex-col w-[90vw] mx-auto lg:mt-20 mt-[70vh]">
         <div className="bg-[#E9ECF4] rounded-2xl flex flex-col justify-center lg:py-20 py-10 lg:px-10 px-4 lg:w-[45%]">
-          <h2
-            data-aos="fade-up"
-            className="text-[#223D94] lg:text-[36px] text-[24px] font-semibold"
-          >
+          <h2 className="text-[#223D94] lg:text-[36px] text-[24px] font-semibold">
             What we do?
           </h2>
-          <p data-aos="fade-up" className="text-[#333] lg:text-[20px] mt-1">
-            Here&apos;s an idea of the value we provide to improve efficiency
-            and growth in your business.
+          <p className="mt-1 text-[#333] lg:text-[20px]">
+            {data.whatWeDo.title}
+          </p>
+          <p className="mt-1 text-[#333] lg:text-[20px]">
+            {data.whatWeDo.description}
           </p>
 
-          <p
-            data-aos="fade-up"
-            className="mt-4 lg:text-[16px] text-[#333] text-[13px]"
-          >
-            OneStepAhead Consulting is your one-stop-shop HR Solutions Provider,
-            helping you turn your business goals into reality with our
-            comprehensive suite of strategic HR Solutions.
-          </p>
-
-          <div
-            data-aos="fade-up"
-            className="space-y-4 mt-4 text-[#333] text-[16px]"
-          >
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-0.5 bg-[#333]"></div>
-              <p className="">Meeting legal policies and requirements</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-0.5 bg-[#333]"></div>
-              <p className="">
-                Hiring and retaining the best talents to ensure stability
-              </p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-6 h-0.5 bg-[#333]"></div>
-              <p className="">Improving business efficiency</p>
-            </div>
+          <div className="space-y-4 mt-4 text-[#333] text-[16px]">
+            {data.whatWeDo.bullets.map((bullet, i) => (
+              <div key={i} className="flex items-center space-x-2">
+                <div className="w-6 h-0.5 bg-[#333]"></div>
+                <p>{bullet}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div data-aos="fade-up" className="lg:w-[50%] lg:mt-0 mt-6">
-          <img src="/assets/about-six.png" alt="img" className="w-[100%]" />
+          <img
+            src={data.whatWeDo.image?.asset?.url || "/assets/about-six.png"}
+            alt="What we do"
+            className="w-[100%]"
+          />
         </div>
       </div>
 
       <div className="bg-[url('/assets/about-seven.png')] w-[90vw] lg:mt-20 mt-10 rounded-2xl mx-auto bg-center bg-cover bg-no-repeat">
-        <div className="bg-[#000]/60 flex flex-col items-center justify-center lg:py-[10vh] py-0 pt-[5vh] rounded-2xl text-center space-y-4">
+        <div className="bg-[#000]/60 flex flex-col items-center justify-center lg:py-[10vh] pt-[5vh] rounded-2xl text-center space-y-4">
           <p className="text-[#fff]">Our Approach</p>
           <h2 className="lg:text-[48px] text-[20px] font-bold text-[#fff] lg:w-[70%]">
             <Typewriter
-              options={{
-                loop: true,
-                cursor: "",
-              }}
+              options={{ loop: true, cursor: "" }}
               onInit={(typewriter) => {
                 typewriter
                   .typeString("How do we help you achieve your business goals")
@@ -177,6 +157,7 @@ const History = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </Container>
   );
