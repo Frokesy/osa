@@ -80,7 +80,7 @@ const Home = () => {
       />
       <Services items={data.services} />
       <Programs items={data.programs} />
-      <Application roles={data.applications} />
+      <Application />
       <Gallery images={data.gallery} />
       <Impact impact={data.impact} />
       <Testimonials testimonials={data.testimonials} />

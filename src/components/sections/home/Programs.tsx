@@ -37,7 +37,7 @@ const Programs: React.FC<ProgramsProps> = ({ items }) => {
         className="flex flex-col space-y-3 lg:w-[40%] w-[90%] mx-auto text-center"
       >
         <h2 className="text-[#223D94] lg:text-[36px] text-[24px] font-semibold">
-          Key Training Programs
+          Corporate Training Programs
         </h2>
         <p className="text-[#667085] lg:text-[20px]">
           Discover our comprehensive range of professional training programs
@@ -65,7 +65,7 @@ const Programs: React.FC<ProgramsProps> = ({ items }) => {
 
       <div className="flex justify-center items-center mt-20">
         <NavLink
-          to="/services/vsd"
+          to="/services/ctp"
           className="flex text-[#fff] items-center space-x-4 bg-[#E30613] px-4 lg:py-4 py-3 font-semibold rounded-lg hover:bg-[#c0050f] transition-colors"
         >
           <span>See full catalogue</span>

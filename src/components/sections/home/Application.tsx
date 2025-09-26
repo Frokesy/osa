@@ -1,39 +1,114 @@
-import { ArrowRight, ClockIcon } from "lucide-react";
-import {
-  CarpentryIcon,
-  FashionDesignIcon,
-  HospitalityIcon,
-  MiniCalendarIcon,
-  NairaIcon,
-  NigerianFlag,
-  SolarTechnologyIcon,
-} from "../../svgs/Icons";
-import { NavLink } from "react-router-dom";
-import type { JSX } from "react";
+import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { toast, Slide } from "react-toastify";
+import { render } from "@react-email/components";
+import ApplicationUserTemplate from "../../email-templates/application/ToUser";
+import ApplicationAdminTemplate from "../../email-templates/application/ToAdmin";
+import Plunk from "@plunk/node";
 
-const iconMap: Record<string, JSX.Element> = {
-  fashion: <FashionDesignIcon />,
-  carpentry: <CarpentryIcon />,
-  solar: <SolarTechnologyIcon />,
-  hospitality: <HospitalityIcon />,
-};
+const plunkSecret = import.meta.env.VITE_PLUNK_SECRET;
+const plunkClient = new Plunk(plunkSecret);
 
-interface OpenRole {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  type: string;
-  salary: string;
-  icon: string;
-  postedDate: string;
-}
+const Application = () => {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    expertise: "",
+    experience: "",
+  });
 
-interface ApplicationProps {
-  roles: OpenRole[];
-}
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, files } = e.target as HTMLInputElement;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: files ? files[0] : value,
+    }));
+  };
 
-const Application: React.FC<ApplicationProps> = ({ roles }) => {
+  const handleApplicationSubmit = async () => {
+    const { firstName, lastName, email, phone, expertise, experience } =
+      formData;
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !expertise ||
+      !experience
+    ) {
+      toast.error("Please fill all fields before submitting.", {
+        position: "top-center",
+        autoClose: 2000,
+        transition: Slide,
+        hideProgressBar: true,
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const adminEmailHtml = render(
+        <ApplicationAdminTemplate
+          firstName={firstName}
+          lastName={lastName}
+          email={email}
+          phone={phone}
+          expertise={expertise}
+          experience={experience}
+        />
+      );
+
+      await plunkClient.emails.send({
+        to: "info@1stepaheadgroup.com",
+        subject: "📌 New Trainer Application Submitted",
+        body: await adminEmailHtml,
+      });
+
+      const userEmailHtml = render(
+        <ApplicationUserTemplate firstName={firstName} expertise={expertise} />
+      );
+
+      await plunkClient.emails.send({
+        to: email,
+        subject: "✅ Your Application Was Received",
+        body: await userEmailHtml,
+      });
+
+      toast.success("Application submitted successfully!", {
+        position: "top-center",
+        autoClose: 2000,
+        transition: Slide,
+        hideProgressBar: true,
+      });
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        expertise: "",
+        experience: "",
+      });
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      toast.error("Something went wrong. Please try again.", {
+        position: "top-center",
+        autoClose: 2000,
+        transition: Slide,
+        hideProgressBar: true,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-[#0E1A3E] text-[#fff] mt-20">
       <div
@@ -51,65 +126,79 @@ const Application: React.FC<ApplicationProps> = ({ roles }) => {
       </div>
 
       <div className="bg-[url('/assets/application-hero.png')] bg-cover bg-center pb-10 lg:py-10 mt-10">
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-2 lg:gap-10 w-[90vw] mx-auto mt-10">
-          {roles.map((job) => (
-            <div
-              key={job.id}
-              data-aos="fade-up"
-              className="border border-[#ccc] bg-[#fff] text-[#333] rounded-2xl lg:p-10 p-4 mt-6 lg:mt-0"
-            >
-              <div className="flex lg:flex-row flex-col items-start justify-between">
-                <div className="lg:space-y-1 space-y-3 flex flex-col items-start">
-                  <div className="flex items-center space-x-3">
-                    <div>{iconMap[job.icon] ?? null}</div>
-                    <h2 className="text-[18px] font-semibold">{job.title}</h2>
-                  </div>
-                  <div className="flex lg:hidden items-center space-x-2 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
-                    <NigerianFlag />
-                    <p className="text-[#667085] text-[14px]">{job.location}</p>
-                  </div>
-                  <p className="text-gray-500">{job.description}</p>
-                </div>
-                <div className="lg:flex hidden items-center space-x-2 mt-3 lg:mt-0 bg-[#E9ECF4] font-semibold py-2 px-4 rounded-lg">
-                  <NigerianFlag />
-                  <p className="text-[#667085]">{job.location}</p>
-                </div>
-              </div>
-
-              <div className="flex lg:flex-row flex-col justify-between lg:items-center space-y-3 lg:space-y-0 mt-10">
-                <div className="flex items-center space-x-10">
-                  <div className="flex items-center space-x-3">
-                    <ClockIcon />
-                    <p className="text-[#78797B]">{job.type}</p>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <NairaIcon />
-                    <p className="text-[#78797B]">{job.salary}</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MiniCalendarIcon />
-                  <p className="text-[#78797B]">
-                    {new Date(job.postedDate).toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-center items-center lg:mt-20 mt-10">
-          <NavLink
-            to="/career"
-            className="flex text-[#fff] items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-lg hover:bg-[#c0050f] transition-colors"
+        <div className="flex items-center justify-center mt-10">
+          <div
+            data-aos="fade-up"
+            className="border border-[#ccc] bg-[#fff] lg:w-auto w-[90vw] text-[#333] rounded-2xl lg:p-10 p-4 mt-6 lg:mt-0"
           >
-            <span>Apply Now</span>
-            <ArrowRight color="#fff" />
-          </NavLink>
+            <form className="space-y-6">
+              <div className="grid lg:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+                />
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+                />
+              </div>
+
+              <input
+                type="text"
+                name="expertise"
+                placeholder="Area of Expertise (e.g. Carpentry, Solar Tech)"
+                value={formData.expertise}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+              />
+
+              <input
+                type="number"
+                name="experience"
+                placeholder="Years of Experience"
+                value={formData.experience}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#0E1A3E]"
+              />
+
+              <button
+                type="button"
+                onClick={handleApplicationSubmit}
+                disabled={loading}
+                className="w-full flex justify-center items-center space-x-3 bg-[#E30613] text-white py-3 rounded-lg font-semibold hover:bg-[#c0050f] transition-colors disabled:opacity-70"
+              >
+                <span>{loading ? "Submitting..." : "Apply Now"}</span>
+                <ArrowRight color="#fff" />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

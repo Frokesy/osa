@@ -17,6 +17,7 @@ const Footer = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
+  const [services, setServices] = useState<Service[]>([]);
 
   const plunkSecret = import.meta.env.VITE_PLUNK_SECRET;
   const plunkClient = new Plunk(plunkSecret);
@@ -74,8 +75,6 @@ const Footer = () => {
       setLoading(false);
     }
   };
-
-  const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     client.fetch(allServicesQuery).then((res) => setServices(res));

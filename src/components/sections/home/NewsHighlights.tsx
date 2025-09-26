@@ -28,7 +28,7 @@ const NewsHighlights = () => {
       </p>
 
       <div className="flex space-x-4 mb-6 overflow-x-auto md:grid md:grid-cols-2 md:gap-10">
-        {posts.map((news) => (
+        {posts.slice(0, 2).map((news) => (
           <div
             key={news._id}
             className="min-w-[300px] bg-[#E9ECF4] lg:p-6 p-3 rounded-2xl md:min-w-0"
