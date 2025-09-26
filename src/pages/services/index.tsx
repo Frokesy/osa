@@ -67,7 +67,7 @@ const ServicePage = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-between lg:mt-0 -mt-4">
+        <div className="flex items-center justify-between lg:mt-0 mt-3">
           <div className="w-[70%]">
             <h2
               data-aos="fade-up"
@@ -77,7 +77,7 @@ const ServicePage = () => {
             </h2>
             <p
               data-aos="fade-up"
-              className="lg:text-[14px] text-[12px] pt-2 text-[#5D5E5F]"
+              className="lg:text-[14px] text-[12px] py-4 text-[#5D5E5F]"
             >
               {data.subText}
             </p>
@@ -135,45 +135,59 @@ const ServicePage = () => {
       </div>
 
       <div className="w-[90vw] mx-auto mt-20 text-[#fff] space-y-10">
-        {data.items?.map((item, i) => (
-          <div
-            key={i}
-            data-aos="fade-up"
-            style={{ backgroundColor: item.bg || "#fff" }}
-            className={`${
-              i % 2 === 1
-                ? "lg:flex-row-reverse flex-col text-[#000]"
-                : "lg:flex-row flex-col"
-            } flex justify-between items-center rounded-2xl ${slug !== "vsd" && "py-10"}`}
-          >
-            {item.image && (
-              <div className="lg:w-[55%]">
-                <img
-                  src={item.image.asset.url}
-                  alt={item.title}
-                  className="lg:h-[414px] h-[241px] w-full object-cover rounded-l-2xl"
-                />
-              </div>
-            )}
-            <div className="lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10 px-6">
-              <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
-                {item.title}
-              </h2>
-              <p className="lg:text-[16px] text-[14px]">{item.description}</p>
+        {data.items?.map((item, i) => {
+          const isOdd = i % 2 === 0;
+          const bgColor = isOdd ? "#0E1A3E" : "#FFFFFF";
+          const textColor = isOdd ? "#FFFFFF" : "#000000";
+          const iconColor = isOdd ? "#FFFFFF" : "#000000";
 
-              <div className="space-y-2">
-                {item.features?.map((feature, idx) => (
-                  <div key={idx} className="flex items-center space-x-2">
-                    <WhiteTick
-                      color={item.bg !== "#0E1A3E" ? "#000000" : "#ffffff"}
-                    />
-                    <p className="lg:text-[16px] text-[14px]">{feature}</p>
-                  </div>
-                ))}
+          const isReversed = !isOdd;
+          const imgRoundedClass = isReversed
+            ? "rounded-r-2xl lg:rounded-l-none"
+            : "rounded-l-2xl lg:rounded-r-none";
+
+          return (
+            <div
+              key={i}
+              data-aos="fade-up"
+              style={{ backgroundColor: bgColor }}
+              className={`${
+                isReversed
+                  ? "lg:flex-row-reverse flex-col"
+                  : "lg:flex-row flex-col"
+              } flex justify-between items-center rounded-2xl ${slug !== "vsd" && "py-10"}`}
+            >
+              {item.image && (
+                <div className="lg:w-[55%]">
+                  <img
+                    src={item.image.asset.url}
+                    alt={item.title}
+                    className={`lg:h-[414px] h-[241px] w-full object-cover ${imgRoundedClass}`}
+                  />
+                </div>
+              )}
+
+              <div
+                className="lg:w-[40%] space-y-4 lg:pr-6 lg:pb-0 pb-10 px-6"
+                style={{ color: textColor }}
+              >
+                <h2 className="lg:text-[36px] text-[20px] mt-6 lg:mt-0 font-semibold">
+                  {item.title}
+                </h2>
+                <p className="lg:text-[16px] text-[14px]">{item.description}</p>
+
+                <div className="space-y-2">
+                  {item.features?.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-2">
+                      <WhiteTick color={iconColor} />
+                      <p className="lg:text-[16px] text-[14px]">{feature}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <Footer />
