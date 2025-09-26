@@ -41,7 +41,7 @@ const NewsletterCard = () => {
       );
 
       await plunkClient.emails.send({
-        to: "akindeleayanfeoluwa@gmail.com",
+        to: "info@1stepaheadgroup.com",
         subject: "New Newsletter Signup 📩",
         body: await adminEmailHtml,
       });

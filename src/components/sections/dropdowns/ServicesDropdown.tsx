@@ -23,7 +23,7 @@ const ICONS: Record<string, JSX.Element> = {
   odc: <ODCIcon size="48" />,
 };
 
-interface Service {
+export interface Service {
   title: string;
   slug: { current: string };
   subText: string;

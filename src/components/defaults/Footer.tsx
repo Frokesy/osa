@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { render } from "@react-email/render";
 import Plunk from "@plunk/node";
 import { Slide, toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
-import {
-  InstagramIcon,
-  PhoneIcon,
-  SubmitIcon,
-  UserIcon,
-  WhatsAppIcon,
-} from "../svgs/Icons";
+import { PhoneIcon, SubmitIcon, UserIcon } from "../svgs/Icons";
 
 import { ContactAdminTemplate } from "../email-templates/contact/ToAdmin";
+import { allServicesQuery } from "../../sanity/servicePage";
+import { client } from "../../sanity/client";
+import type { Service } from "../sections/dropdowns/ServicesDropdown";
+import { LinkedIn } from "../svgs/Logos";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   const [service, setService] = useState("");
@@ -48,7 +47,7 @@ const Footer = () => {
       );
 
       await plunkClient.emails.send({
-        to: "akindeleayanfeoluwa@gmail.com",
+        to: "info@1stepaheadgroup.com",
         subject: "📌 New Free Consultation Request",
         body: await adminEmailHtml,
       });
@@ -76,19 +75,11 @@ const Footer = () => {
     }
   };
 
-  const serviceItems = [
-    { id: 1, title: "Vocational Skills Development", link: "/services/vsd" },
-    { id: 2, title: "HR Advisory", link: "/services/hra" },
-    { id: 3, title: "Recruitment & Selection Services", link: "/services/rss" },
-    { id: 4, title: "Payroll Compensation Development", link: "/services/pcd" },
-    { id: 5, title: "Recognition System", link: "/services/rs" },
-    {
-      id: 6,
-      title: "Business Process & Policy Manual",
-      link: "/services/bppm",
-    },
-    { id: 7, title: "Consulting for govt. & NGOs.", link: "/services/odc" },
-  ];
+  const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    client.fetch(allServicesQuery).then((res) => setServices(res));
+  }, []);
 
   return (
     <div className="mt-20 bg-[#F5F5F5]">
@@ -119,23 +110,11 @@ const Footer = () => {
                 className="w-full p-3 rounded-lg bg-[#fff] text-[#000]"
               >
                 <option value="">-- Select an option --</option>
-                <option value="Vocational Skills Development">
-                  Vocational Skills Development
-                </option>
-                <option value="HR Advisory">HR Advisory</option>
-                <option value="Recruitment & Selection Services">
-                  Recruitment & Selection Services
-                </option>
-                <option value="Payroll Compensation Development">
-                  Payroll Compensation Development
-                </option>
-                <option value="Recognition System">Recognition System</option>
-                <option value="Business Process & Policy Manual">
-                  Business Process & Policy Manual
-                </option>
-                <option value="Consulting for govt. & NGOs.">
-                  Consulting for govt. & NGOs.
-                </option>
+                {services.map((service) => (
+                  <option key={service.slug.current} value={service.title}>
+                    {service.title}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -218,7 +197,7 @@ const Footer = () => {
               />
               <span>Nigeria office:</span>
               <span>United kingdom office:</span>
-              <span>Phone number: +234 708 005 5138</span>
+              <span>Phone number: +234 906 308 3323</span>
               <span>Email: info@1stepaheadgroup.com</span>
             </div>
 
@@ -238,8 +217,12 @@ const Footer = () => {
 
               <div className="flex flex-col space-y-4">
                 <h2 className="font-semibold">Resources</h2>
-                {serviceItems.map((item) => (
-                  <NavLink key={item.id} to={item.link} className="text-[14px]">
+                {services.map((item) => (
+                  <NavLink
+                    key={item.slug.current}
+                    to={`/services/${item.slug.current}`}
+                    className="text-[14px]"
+                  >
                     {item.title}
                   </NavLink>
                 ))}
@@ -264,9 +247,14 @@ const Footer = () => {
             <p className="lg:text-[16px] text-[10px]">
               © 2025 1stepahead All rights reserved.
             </p>
-            <div className="flex space-x-3 items-center">
-              <WhatsAppIcon />
-              <InstagramIcon />
+            <div className="flex items-center space-x-6">
+              <Instagram />
+              <img
+                src="/assets/xicon2.avif"
+                alt="xicon"
+                className="w-[24px] h-[24px] rounded-full"
+              />
+              <LinkedIn color="#000" />
             </div>
           </div>
         </div>

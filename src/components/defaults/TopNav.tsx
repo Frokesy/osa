@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { CaretDown, Hamburger, TelIcon } from "../svgs/Icons";
+import { CaretDown, Hamburger } from "../svgs/Icons";
 import AboutDropdown from "../sections/dropdowns/AboutDropdown";
 import ServicesDropdown from "../sections/dropdowns/ServicesDropdown";
 import MediaDropdown from "../sections/dropdowns/MediaDropdown";
 import Drawer from "./Drawer";
 import { AnimatePresence, motion } from "framer-motion";
-import { Instagram, Phone } from "lucide-react";
+import { Instagram, Mail, Phone } from "lucide-react";
+import { LinkedIn } from "../svgs/Logos";
 
 const TopNav = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -27,13 +28,26 @@ const TopNav = () => {
   return (
     <div className="bg-[#fff] shadow-lg relative">
       <div className="bg-[#223D94] lg:flex hidden justify-between px-20 text-[#fff] items-center py-3">
-        <div className="flex items-center space-x-3">
-          <Phone />
-          <p className="">
-            Call Us now for your One Stop Shop HR Solutions on +234 708 005 5138
-          </p>
+        <div className="flex items-center space-x-6">
+          <p className="">Your One Stop Shop HR Solutions:</p>
+          <div className="flex items-center space-x-3">
+            <Phone size={18} />
+            <span>+234 906 308 3323</span>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Mail size={18} />
+            <span>info@1stepaheadgroup.com</span>
+          </div>
         </div>
-        <Instagram color="#fff" />
+        <div className="flex items-center space-x-6">
+          <Instagram color="#fff" />
+          <img
+            src="/assets/xicon2.avif"
+            alt="xicon"
+            className="w-[24px] h-[24px] rounded-full"
+          />
+          <LinkedIn />
+        </div>
       </div>
       <div className="lg:w-[95vw] z-50 flex justify-between items-center text-[#000] py-4 lg:px-10 px-6 mx-auto lg:rounded-4xl">
         <div className="flex items-center space-x-20">
@@ -72,14 +86,6 @@ const TopNav = () => {
             ))}
           </div>
         </div>
-
-        <NavLink
-          to="/contact"
-          className="lg:flex hidden text-[#fff] items-center space-x-4 bg-[#E30613] px-4 py-4 font-semibold rounded-xl hover:bg-[#c0050f] transition-colors"
-        >
-          <span>Contact us</span>
-          <TelIcon color="#fff" />
-        </NavLink>
 
         <div
           className="lg:hidden cursor-pointer"
