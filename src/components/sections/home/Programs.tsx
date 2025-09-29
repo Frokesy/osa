@@ -1,22 +1,13 @@
 import { ArrowRight } from "lucide-react";
-import {
-  AutomotiveIcon,
-  CarpentryIcon,
-  CreativeArtsIcon,
-  FashionDesignIcon,
-  HospitalityIcon,
-  SolarTechnologyIcon,
-} from "../../svgs/Icons";
 import { NavLink } from "react-router-dom";
-import type { JSX } from "react";
 
-const iconMap: Record<string, JSX.Element> = {
-  fashion: <FashionDesignIcon />,
-  carpentry: <CarpentryIcon />,
-  solar: <SolarTechnologyIcon />,
-  hospitality: <HospitalityIcon />,
-  automotive: <AutomotiveIcon />,
-  creative: <CreativeArtsIcon />,
+const iconMap: Record<string, string> = {
+  fashion: "/icons/fashion.png",
+  carpentry: "/icons/carpentry.png",
+  solar: "/icons/solar.png",
+  hospitality: "/icons/hospitality.png",
+  automotive: "/icons/automotive.png",
+  creative: "/icons/creative.png",
 };
 
 interface Program {
@@ -52,7 +43,13 @@ const Programs: React.FC<ProgramsProps> = ({ items }) => {
             data-aos="fade-up"
             className="flex flex-col items-center space-y-3 text-center"
           >
-            {iconMap[program.icon] ?? (
+            {iconMap[program.icon] ? (
+              <img
+                src={iconMap[program.icon]}
+                alt={program.title}
+                className="w-12 h-12 object-contain"
+              />
+            ) : (
               <div className="w-12 h-12 rounded-full bg-gray-200" />
             )}
             <h2 className="text-[18px] font-semibold">{program.title}</h2>

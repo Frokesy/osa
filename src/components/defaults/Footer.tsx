@@ -194,7 +194,7 @@ const Footer = () => {
                 alt="logo"
                 className="w-[110px] h-[90px]"
               />
-              <span>Nigeria office:</span>
+              <span>Nigeria office: No 7 kanta road, Kaduna State</span>
               <span>United kingdom office:</span>
               <span>Phone number: +234 906 308 3323</span>
               <span>Email: info@1stepaheadgroup.com</span>
