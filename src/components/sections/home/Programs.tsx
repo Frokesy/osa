@@ -2,12 +2,12 @@ import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const iconMap: Record<string, string> = {
-  fashion: "/icons/fashion.png",
-  carpentry: "/icons/carpentry.png",
-  solar: "/icons/solar.png",
-  hospitality: "/icons/hospitality.png",
-  automotive: "/icons/automotive.png",
-  creative: "/icons/creative.png",
+  fashion: "/icons/fashion.svg",
+  carpentry: "/icons/carpentry.svg",
+  solar: "/icons/solar.svg",
+  hospitality: "/icons/hospitality.svg",
+  automotive: "/icons/automotive.svg",
+  creative: "/icons/creative.svg",
 };
 
 interface Program {
