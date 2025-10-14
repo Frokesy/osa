@@ -92,7 +92,7 @@ const CoreValues = () => {
               Onestepahead
             </h2>
           </div>
-          <h2 className="pt-3 lg:text-[48px] text-[24px] font-semibold">
+          <h2 className="pt-3 lg:text-[48px] text-[20px] font-semibold">
             {data.hero.heroContent}
           </h2>
         </div>

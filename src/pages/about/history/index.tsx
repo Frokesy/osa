@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Container from "../../../components/defaults/Container";
 import Footer from "../../../components/defaults/Footer";
 import TopNav from "../../../components/defaults/TopNav";
-import { HistoryIcon, ServiceIcon } from "../../../components/svgs/Icons";
+import {
+  BlueDot,
+  HistoryIcon,
+  ServiceIcon,
+} from "../../../components/svgs/Icons";
 import Typewriter from "typewriter-effect";
 import { historyPageQuery } from "../../../sanity/histroyPage";
 import { client } from "../../../sanity/client";
@@ -111,7 +115,7 @@ const History = () => {
           <div className="space-y-4 mt-4 text-[#333] text-[16px]">
             {data.whatWeDo.bullets.map((bullet, i) => (
               <div key={i} className="flex items-center space-x-2">
-                <div className="w-6 h-0.5 bg-[#333]"></div>
+                <BlueDot />
                 <p>{bullet}</p>
               </div>
             ))}
@@ -127,7 +131,7 @@ const History = () => {
         </div>
       </div>
 
-      <div className="bg-[url('/assets/about-seven.png')] w-[90vw] lg:mt-20 mt-10 rounded-2xl mx-auto bg-center bg-cover bg-no-repeat">
+      <div className="bg-[url('/assets/about-twenty.jpg')] w-[90vw] lg:mt-20 mt-10 rounded-2xl mx-auto bg-center bg-cover bg-no-repeat">
         <div className="bg-[#000]/60 flex flex-col items-center justify-center lg:py-[10vh] pt-[5vh] rounded-2xl text-center space-y-4">
           <p className="text-[#fff]">Our Approach</p>
           <h2 className="lg:text-[48px] text-[20px] font-bold text-[#fff] lg:w-[70%]">
@@ -135,25 +139,25 @@ const History = () => {
               options={{ loop: true, cursor: "" }}
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("How do we help you achieve your business goals")
+                  .typeString("How do we help you achieve your business goals?")
                   .pauseFor(1000)
                   .deleteAll()
-                  .typeString("How do we help you achieve your business goals")
+                  .typeString("How do we help you achieve your business goals?")
                   .start();
               }}
             />
           </h2>
           <div className="lg:text-[18px] text-[#fff] lg:w-[70%] lg:px-0 px-4 text-[13px] lg:bg-transparent bg-[#0E1A3E] lg:mt-10 mt-4 pt-6 lg:pb-0 lg:pt-0 pb-8 rounded-b-2xl">
             <p data-aos="fade-up">
-              We seek to add value to organizations by establishing a
-              partnership with you. Through this we can better understand your
-              business requirements and tailor a service that will add value to
-              your organization. We aim to set exemplary service standards,
-              integrity, quality, knowledge and performance in everything we do
-              by helping clients plan for the unexpected and protect what
-              matters most to them. Our partnership allows you to do what you do
-              best - drive your business forward, while leaving your HR
-              processes to us.
+              We believe in creating lasting partnerships with organizations to
+              deliver tailored HR solutions that truly add value. By
+              understanding your unique business goals, we design strategies
+              that enhance people performance, ensure compliance, and drive
+              organizational success. At OneStepAhead Consulting, we’re
+              committed to excellence — maintaining the highest standards of
+              integrity, quality, and expertise in everything we do. Our
+              partnership allows you to focus on what you do best: growing your
+              business, while we manage and optimize your HR processes.
             </p>
           </div>
         </div>
